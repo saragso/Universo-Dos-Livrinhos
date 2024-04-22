@@ -1,0 +1,220 @@
+/*importando a fonte 'fredoka'*/
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
+
+/*Estilos gerais*/
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Fredoka", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+/*Estilos para o corpo da página*/
+body {
+  display: flex;
+  min-height: 100vh;
+  background-color: #F2BAC9;
+}
+
+/*Estilizando o título da página*/
+h1 {
+    margin-left: 50px;
+}
+
+/*Estilizando o conteúdo principal da página*/
+main {
+  padding: 20px;
+  position: fixed;
+  z-index: 1;
+  padding-left: calc(82px + 20px);
+}
+
+/*Estilizando o menu lateral*/
+#sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: white;
+  height: 100vh;
+  border-radius: 0px 18px 18px 0px;
+  position: relative;
+  transition: all 0.5s;
+  min-width: 82px;
+  z-index: 2;
+}
+
+/*Estilizando o conteúdo da barra lateral*/
+#sidebar-content {
+  padding: 12px;
+  margin-left: -25px;
+}
+
+/*Estilizando as informações do usuário no menu lateral*/
+#user {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+#user-avatar {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 20px;
+  margin-left: 28px;
+}
+
+#user-infos {
+  display: flex;
+  flex-direction: column;
+}
+
+#user-infos span:last-child {
+  color: black;
+  font-size: 12px;
+}
+
+/*Estilizando os itens do menu lateral*/
+#side-itens {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  list-style: none;
+}
+
+.side-item {
+  border-radius: 8px;
+  padding: 14px;
+  cursor: pointer;
+}
+
+.side-item.active {
+  background-color: #F2E2BA;
+}
+
+.side-item:hover:not(.active),
+#logout-btn:hover {
+  background-color: #F2BAC9; /*Define a cor de fundo ao passar o mouse*/
+}
+
+/*Estilizando os links da barra lateral*/
+.side-item a {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+}
+
+.side-item.active a {
+  color: black;
+}
+
+.side-item a img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+}
+
+/*Estilizando o botão de logout*/
+#logout {
+  border-top: 1px solid #F2BAC9;
+  padding: 12px;
+}
+
+#logout-btn {
+  border: none;
+  padding: 12px;
+  font-size: 14px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  border-radius: 8px;
+  text-align: start;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+/*Estilizando o botão de abrir o menu lateral*/
+#open-btn {
+  position: absolute;
+  top: 30px;
+  right: -10px;
+  background-color: #F2E2BA; /*cor de fundo*/
+  color: black; /*cor do texto*/
+  border-radius: 100%;
+  width: 20px;
+  height: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+#open-btn-icon {
+  transition: transform 0.3s ease;
+}
+
+.open-sidebar #open-btn-icon {
+  transform: rotate(180deg);
+}
+
+/*Estilizando a descrição de itens do menu lateral*/
+.item-description {
+  width: 0px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 14px;
+  transition: width 0.6s;
+  height: 0px;
+}
+
+/*Estilizando o menu lateral quando aberto*/
+#sidebar.open-sidebar {
+  min-width: 15%; /*largura mínima*/
+}
+
+#sidebar.open-sidebar .item-description {
+  width: 150px; /*largura da descrição do item*/
+  height: auto;
+}
+
+#sidebar.open-sidebar .side-item a {
+  justify-content: flex-start;
+  gap: 14px;
+}
+
+/*Estilizando os cards*/
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; 
+}
+
+.card {
+    margin-bottom: 30px; 
+    margin-left: 50px;
+    margin-top: 30px;
+}
+
+.btn.btn-primary {
+    background-color: #F2BAC9; /*cor de fundo*/
+    color: black;  /*cor do texto*/
+    border-color: #F2BAC9; /*cor da borda*/ 
+}
+
+.btn.btn-primary:hover {
+    background-color: #F2E2BA; /*cor de fundo ao passar o mouse*/
+    color: black; 
+    border-color: #F2E2BA; 
+}
+
+
+
+

@@ -1,0 +1,218 @@
+/* Importando a fonte 'fredoka' do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
+
+/* Estilos gerais */
+* {
+  padding: 0; /* Remover preenchimento padrão */
+  margin: 0; /* Remover margens padrão */
+  box-sizing: border-box; /* Fazer com que as dimensões incluam padding e border */
+  font-family: "Fredoka", sans-serif; /* Usar a fonte 'Fredoka' como padrão */
+  font-optical-sizing: auto; /* Tamanho óptico da fonte automático */
+  font-style: normal; /* Estilo de fonte normal */
+  font-variation-settings:
+    "wdth" 100; /* Configurações de variação de fonte (largura) */
+}
+
+/* Estilos específicos para o elemento h1 */
+h1 {
+    margin-left: 30px; /* Margem à esquerda */
+}
+
+/* Estilos para o corpo do documento */
+body {
+  display: flex; /* Exibir como um flex container */
+  min-height: 100vh; /* Altura mínima igual à altura da tela */
+  background-color: #F2BAC9; /* Cor de fundo */
+}
+
+/* Estilos para o conteúdo principal */
+main {
+  padding: 20px; /* Preenchimento */
+  position: fixed; /* Posição fixa */
+  z-index: 1; /* Índice z */
+  padding-left: calc(82px + 20px); /* Preenchimento à esquerda */
+}
+
+/* Estilos para a barra lateral */
+#sidebar {
+  display: flex; /* Exibir como um flex container */
+  flex-direction: column; /* Direção da coluna */
+  justify-content: space-between; /* Justificar o conteúdo entre os itens */
+  background-color: white; /* Cor de fundo */
+  height: 100vh; /* Altura igual à altura da tela */
+  border-radius: 0px 18px 18px 0px; /* Borda arredondada */
+  position: relative; /* Posição relativa */
+  transition: all 0.5s; /* Transição */
+  min-width: 82px; /* Largura mínima */
+  z-index: 2; /* Índice z */
+}
+
+/* Estilos para o conteúdo da barra lateral */
+#sidebar-content {
+  padding: 12px; /* Preenchimento */
+  margin-left: -25px; /* Margem à esquerda */
+}
+
+/* Estilos para informações do usuário */
+#user {
+  display: flex; /* Exibir como um flex container */
+  align-items: center; /* Alinhamento vertical */
+  gap: 8px; /* Espaço entre os elementos */
+  margin-bottom: 24px; /* Margem inferior */
+}
+
+/* Estilos para o avatar do usuário */
+#user-avatar {
+  width: 50px; /* Largura */
+  height: 50px; /* Altura */
+  object-fit: cover; /* Ajuste do conteúdo */
+  border-radius: 20px; /* Borda arredondada */
+  margin-left: 28px; /* Margem à esquerda */
+}
+
+/* Estilos para as informações do usuário */
+#user-infos {
+  display: flex; /* Exibir como um flex container */
+  flex-direction: column; /* Direção da coluna */
+}
+
+/* Estilos para a última informação do usuário */
+#user-infos span:last-child {
+  color: black; /* Cor do texto */
+  font-size: 12px; /* Tamanho da fonte */
+}
+
+/* Estilos para os itens da barra lateral */
+#side-itens {
+  display: flex; /* Exibir como um flex container */
+  flex-direction: column; /* Direção da coluna */
+  gap: 8px; /* Espaço entre os elementos */
+  list-style: none; /* Remover marcadores de lista */
+}
+
+/* Estilos para cada item da barra lateral */
+.side-item {
+  border-radius: 8px; /* Borda arredondada */
+  padding: 14px; /* Preenchimento */
+  cursor: pointer; /* Cursor */
+}
+
+/* Estilos para o item ativo da barra lateral */
+.side-item.active {
+  background-color: #F2E2BA; /* Cor de fundo */
+}
+
+/* Estilos para o item da barra lateral ao passar o mouse */
+.side-item:hover:not(.active),
+#logout-btn:hover {
+  background-color: #F2BAC9; /* Cor de fundo */
+}
+
+/* Estilos para links dentro dos itens da barra lateral */
+.side-item a {
+  text-decoration: none; /* Sem decoração de texto */
+  display: flex; /* Exibir como um flex container */
+  align-items: center; /* Alinhamento vertical */
+  justify-content: center; /* Alinhamento horizontal */
+  color: black; /* Cor do texto */
+}
+
+/* Estilos para links ativos dentro dos itens da barra lateral */
+.side-item.active a {
+  color: black; /* Cor do texto */
+}
+
+/* Estilos para imagens dentro dos links dos itens da barra lateral */
+.side-item a img {
+  display: flex; /* Exibir como um flex container */
+  align-items: center; /* Alinhamento vertical */
+  justify-content: center; /* Alinhamento horizontal */
+  width: 20px; /* Largura */
+  height: 20px; /* Altura */
+}
+
+/* Estilos para o botão de logout */
+#logout {
+  border-top: 1px solid #F2BAC9; /* Borda superior */
+  padding: 12px; /* Preenchimento */
+}
+
+/* Estilos para o botão de logout */
+#logout-btn {
+  border: none; /* Sem borda */
+  padding: 12px; /* Preenchimento */
+  font-size: 14px; /* Tamanho da fonte */
+  display: flex; /* Exibir como um flex container */
+  gap: 20px; /* Espaço entre os elementos */
+  align-items: center; /* Alinhamento vertical */
+  border-radius: 8px; /* Borda arredondada */
+  text-align: start; /* Alinhamento do texto */
+  cursor: pointer; /* Cursor */
+  background-color: transparent; /* Cor de fundo transparente */
+}
+
+/* Estilos para o botão de abrir a barra lateral */
+#open-btn {
+  position: absolute; /* Posição absoluta */
+  top: 30px; /* Distância do topo */
+  right: -10px; /* Distância da direita */
+  background-color: #F2E2BA; /* Cor de fundo */
+  color: black; /* Cor do texto */
+  border-radius: 100%; /* Borda arredondada */
+  width: 20px; /* Largura */
+  height: 20px; /* Altura */
+  border: none; /* Sem borda */
+  cursor: pointer; /* Cursor */
+}
+
+/* Estilos para o ícone do botão de abrir a barra lateral */
+#open-btn-icon {
+  transition: transform 0.3s ease; /* Transição */
+}
+
+/* Estilos para o ícone do botão de abrir a barra lateral quando a barra lateral está aberta */
+.open-sidebar #open-btn-icon {
+  transform: rotate(180deg); /* Rotação */
+}
+
+/* Estilos para a descrição do item da barra lateral */
+.item-description {
+  width: 0px; /* Largura inicial */
+  overflow: hidden; /* Ocultar overflow */
+  white-space: nowrap; /* Não quebrar linha */
+  text-overflow: ellipsis; /* Ellipsis para texto longo */
+  font-size: 14px; /* Tamanho da fonte */
+  transition: width 0.6s; /* Transição */
+  height: 0px; /* Altura inicial */
+}
+
+/* Estilos para a barra lateral aberta */
+#sidebar.open-sidebar {
+  min-width: 15%; /* Largura mínima */
+}
+
+/* Estilos para a descrição do item da barra lateral quando a barra lateral está aberta */
+#sidebar.open-sidebar .item-description {
+  width: 150px; /* Largura */
+  height: auto; /* Altura automática */
+}
+
+/* Estilos para links dentro dos itens da barra lateral quando a barra lateral está aberta */
+#sidebar.open-sidebar .side-item a {
+  justify-content: flex-start; /* Alinhamento do conteúdo à esquerda */
+  gap: 14px; /* Espaço entre os elementos */
+}
+
+/* Estilos para os cards */
+.cards {
+    display: flex; /* Exibir como um flex container */
+    flex-wrap: wrap; /* Quebrar linha quando necessário */
+    justify-content: space-between; /* Justificar o conteúdo entre os itens */
+}
+
+/* Estilos para cada card */
+.card {
+    margin-bottom: 30px; /* Margem inferior */
+    margin-left: 50px; /* Margem à esquerda */
+    margin-top: 50px; /* Margem ao topo */
+}

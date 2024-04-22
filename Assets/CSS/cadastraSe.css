@@ -1,0 +1,213 @@
+/*Importando a fonte fredoka para conteúdo geral*/
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
+
+/*Estilizando a barra de navegação*/
+.navbar navbar-expand-lg bg-body-tertiary {
+    display: flex;
+    padding: 40px 18px;
+    width: 100%;
+    background: var(--white);
+    transition: all 0.5s;
+    position: fixed;
+    text-align: none;
+}
+
+/*Estilos gerais, para a página toda*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Fredoka", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
+    list-style: none;
+    text-decoration: none;
+}
+
+/*Estilizando a seção home*/
+.home {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content:center;
+    padding: 1%;
+    background-color: #f2E2BA;
+}
+
+/*Estilizando o container*/
+.container {
+    margin: 0.5%;
+    width: 95%;
+    height: 87vh;
+    display: flex;
+    box-shadow: 5px 5px 50px rgba(0, 0, 0.212);
+    background: #f2E2BA;
+}
+
+/*Estilizando a seção de imagem do formulário*/
+.form-image {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f2E2BA;
+}
+
+.form-image img {
+    width: 100%rem;
+}
+
+/*Estilizando o formulário*/
+.form {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    padding: 3rem;
+}
+
+/*Estilizando o cabeçalho do formulário*/
+.form-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+/*Estilizando a barrinha abaixo do título da página*/
+.form-header h1::after {
+    content: '';
+    display: block;
+    width: 10rem;
+    height: 0.5rem;
+    background-color: #F2BAC9; /*Define a cor do traço*/
+    margin: 0 auto;
+    position: absolute;
+    border-radius: 10px;
+    margin-bottom: 0.1rem;
+}
+
+/*Estilizando inputs*/
+.input-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 1rem 0;
+}
+
+/*Estilizando as caixas de entrada*/
+.input-box {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.1rem;
+}
+
+.input-box input {
+    margin: 0.6rem 0;
+    padding: 0.8rem 1.2rem;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 1px 1px 6px #0000001c;
+    font-size: 0.8rem;
+}
+
+.input-box input:focus-visible {
+    outline: 1px solid #f2E2BA; /*Define a cor do contorno quando focado*/
+}
+
+.input-box label,
+.gender-title h6 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #000000c0; /*Define a cor do texto*/
+}
+
+.input-box input::placeholder {
+    color: #000000be; /*Define a cor do texto do espaço reservado*/
+}
+
+/*Estilizando o botão de continuar*/
+.continue-button button {
+    width: 100%;
+    border: none;
+    background-color: #f2E2BA; /*Define a cor de fundo*/
+    padding: 0.62rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.continue-button button:hover {
+    background-color: #F2BAC9; /*Define a cor de fundo ao passo o mouse*/
+}
+
+.continue-button button a {
+    text-decoration: none;
+    font-size: 0.93rem;
+    font-weight: 500;
+    color: #000;
+}
+
+/*Cores específicas usadas na página*/
+/*#B0F2B4, #BAF2E9, #BAD7F2, #F2BAC9*/
+
+/*Estilos para a seção de conteiner fluido*/
+.container-fluid{
+    background-color: #f2E2BA; /*Define a cor de fundo*/
+}
+
+/*Estilos para a navegação*/
+.navbar-nav{
+    margin-left: auto; 
+}
+
+/*Estilizando os links de navegação*/
+.nav-link[href="./index.html"]:hover {
+    background-color: #B0F2B4; /*Cor de fundo ao passar o mouse*/
+}
+
+.nav-link[href="./sobreNos.html"]:hover {
+    background-color: #BAF2E9; /* Cor para o link 'Sobre nós' */
+  }
+
+  .nav-link[href="./entreEmContato.html"]:hover {
+    background-color: #fde3a7d7;/* Cor para o link 'Entre em contato' */
+  }
+
+  .nav-link[href="./login.html"]:hover {
+    background-color: #B0F2B4;  /* Cor para o link 'Login' */
+  }
+
+  .nav-link[href="./cadastreSe.html"] {
+    background-color: #F2BAC9; /* Cor para o link 'Cadastre-se' */
+  }
+
+  /*media queries para ajustes de layout responsivo*/
+  @media screen and (max-width: 1330px) {
+    .form-image {
+        display: none;
+    }
+    .container {
+        width: 50%;
+    }
+    .form {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 1064px) {
+    .container {
+        width: 90%;
+        height: auto;
+    }
+    .input-group {
+        flex-direction: column;
+        z-index: 5;
+        padding-right: 5rem;
+        max-height: 30rem;
+        overflow-y: scroll;
+        flex-wrap: nowrap;
+    }
+
+}

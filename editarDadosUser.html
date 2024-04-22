@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8"><!--Define o conjunto de caracterese UTF-8 para suportar diferentes idiomas-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--Define a largura da tela e a escala inicial para dispositivos móveis-->
+    <link rel="stylesheet" href="./Assets/CSS/editarDadosUser.css"> <!--carrega o css personalizado-->
+    <link rel="shortcut icon" href="Assets/Imagens/Logo.png" type="image/x-icon"> <!--Define o ícone da página-->
+    <title>Editar dados</title> <!--titulo da página-->
+
+</head>
+<body>  
+    <main> <!--conteúdo da página-->
+        <div class="container">
+            <div class="form">
+                <form action="#"> <!--início do formulário de edição de dados pessoais-->
+                    <div class="form-header">
+                        <div class="title">
+                            <h1>Editar dados</h1>
+                        </div>                   
+                    </div>
+                    <div class="foto-perfil">
+                        <div class="foto">
+                            <img src="./Assets/Imagens/avatar.png" alt="foto de perfil do usuário Lara" width="100px">
+                        </div>
+                        <div class="alterar-foto">
+                            <p>Lara da Silva</p>
+                            <div class="botao-foto">
+                                <button><a href="#">Alterar foto</a> </button> 
+                            </div>
+                        </div>
+                    </div>
+    <br>
+                    <div class="input-group">
+                        <div class="input-box">
+                            <label for="nome-aluno">Nome completo do(a) aluno(a)</label>
+                            <input id="Nome completo do aluno" type="text" name="nome-aluno" placeholder="Nome do(a) aluno(a)" required maxlength="30">
+                        </div>
+    
+                        <div class="input-box">
+                            <label for="nome-responsavel">Nome do responsável</label>
+                            <input id="nome-responsavel" type="text" name="nome-responsavel" placeholder="Nome do responsável" required maxlength="50">
+                        </div>
+                        <div class="input-box">
+                            <label for="email">E-mail de cadastro</label>
+                            <input id="email" type="email" name="email" placeholder="E-mail de cadastro" required maxlength="80">
+                        </div>
+    
+                        <div class="input-box">
+                            <label for="number">Celular</label>
+                            <input id="number" type="tel" name="number" placeholder="(xx) xxxxx-xxxx" required maxlength="11">
+                        </div>
+
+                        <div class="input-box">
+                            <label for="password">Senha antiga</label>
+                            <input id="password" type="password" name="password" placeholder="Digite sua senha antiga" required maxlength="8">
+                        </div>
+
+                        <div class="input-box">
+                            <label for="new-password">Nova  senha</label>
+                            <input id="new-password" type="password" name="new-password" placeholder="Digite sua nova senha" required maxlength="8">
+                        </div>
+    
+    
+                        <div class="input-box">
+                            <label for="confirmPassword">Confirme sua nova Senha</label>
+                            <input id="confirm-new-Password" type="password" name="confirm-new-Password" placeholder="Confirme sua senha" required maxlength="8">
+                        </div>
+    
+                    </div>
+    
+                    <!--Botão para salvar alterações-->
+                    <div class="continue-button">
+                        <button><a href="#">Salvar alterações</a> </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    
+    </main>
+
+    
+    <script src="./Assets/JS/script.js"></script>
+</body>
+</html>

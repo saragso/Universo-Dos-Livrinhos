@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8"> <!-- Define o conjunto de caracteres UTF-8 para suportar diferentes idiomas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Define a largura da tela e a escala inicial para dispositivos móveis -->
+    <!-- Carrega o arquivo CSS do framework Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Carrega o arquivo CSS personalizado -->
+    <link rel="stylesheet" href="./Assets/CSS/cadastraSe.css">
+    <!-- Define o ícone da página -->
+    <link rel="shortcut icon" href="./Assets/Imagens/logo.png" type="image/x-icon">
+    <title>Cadastre-se!</title> <!-- Define o título da página -->
+</head>
+<body>
+    <header> <!-- Início do cabeçalho da página -->
+    <!-- Navbar utilizando o Bootstrap -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid"> <!-- Div que envolve todo o navbar -->
+          <a class="navbar-brand" href="sobreNos.html"><img src="./Assets/Imagens/Logo.png" alt="" width="50" height="50">Universo dos Livrinhos</a> <!-- Link para a página "sobreNos.html" -->
+          <!-- Botão de toggle para telas menores -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <!-- Div para o conteúdo do menu -->
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <!-- Links do menu -->
+              <a class="nav-link" href="./index.html">Página principal</a>
+              <a class="nav-link" href="./sobreNos.html">Sobre nós</a>
+              <a class="nav-link" href="./entreEmContato.html">Entre em contato</a>
+              <a class="nav-link" href="./login.html">Login</a>
+              <a class="nav-link" href="./cadastreSe.html">Cadastre-se</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    
+      <!-- Fim do navbar -->
+    </header> <!-- Fim do cabeçalho -->
+
+    <main>
+        <section class="home">
+            <div class="container">
+                <div class="form-image">
+                    <!-- Imagem relacionada ao cadastro -->
+                    <img src="./Assets/Imagens/Imagem pagina cadastro.png" alt="três crianças brincando e vários elementos que remetem à leitura e à infância, além da frase 'viaje através dos livros'" width="100%" height="100%">
+                </div>
+                <div class="form">
+                    <form action="#"> <!-- Formulário de cadastro -->
+                        <div class="form-header">
+                            <div class="title">
+                                <h1>Cadastre-se</h1> <!-- Título do formulário -->
+                            </div>
+                            
+                        </div>
+        
+                        <div class="input-group"> <!-- Grupo de inputs -->
+                            <div class="input-box">
+                                <label for="firstname">Primeiro Nome</label>
+                                <input id="firstname" type="text" name="firstname" placeholder="Digite seu primeiro nome" required maxlength="30">
+                            </div>
+        
+                            <div class="input-box">
+                                <label for="lastname">Sobrenome</label>
+                                <input id="lastname" type="text" name="lastname" placeholder="Digite seu sobrenome" required maxlength="50">
+                            </div>
+                            <div class="input-box">
+                                <label for="email">E-mail</label>
+                                <input id="email" type="email" name="email" placeholder="Digite seu e-mail" required maxlength="80">
+                            </div>
+        
+                            <div class="input-box">
+                                <label for="number">Celular</label>
+                                <input id="number" type="tel" name="number" placeholder="(xx) xxxxx-xxxx" required maxlength="11">
+                            </div>
+        
+                            <div class="input-box">
+                                <label for="password">Senha</label>
+                                <input id="password" type="password" name="password" placeholder="Digite sua senha" required maxlength="8">
+                            </div>
+        
+                            <div class="input-box">
+                                <label for="confirmPassword">Confirme sua Senha</label>
+                                <input id="confirmPassword" type="password" name="confirmPassword" placeholder="Digite sua senha novamente" required maxlength="8">
+                            </div>
+        
+                        </div>
+        
+                        <div class="continue-button">
+                            <button><a href="#">Cadastre-se</a> </button> <!-- Botão para enviar o formulário -->
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Script do Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

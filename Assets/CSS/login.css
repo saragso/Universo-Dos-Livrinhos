@@ -1,0 +1,211 @@
+/* Importando a fonte 'fredoka' do Google Fonts para o conteúdo geral */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
+
+/* Estilos gerais */
+.navbar navbar-expand-lg bg-body-tertiary {
+    display: flex;
+    padding: 40px 18px;
+    width: 100%;
+    background: var(--white);
+    transition: all 0.5s;
+    position: fixed;
+    text-align: none;
+}
+
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Fredoka", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
+    list-style: none;
+    text-decoration: none;
+}
+
+/* Estilos para a página inicial */
+.home {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content:center;
+    padding: 1%;
+    background-color: #BAF2E9; 
+    overflow: hidden;
+}
+
+/* Estilos para o contêiner principal */
+.container {
+    margin: 0.5%;
+    width: 95%;
+    height: 87vh;
+    display: flex;
+    box-shadow: 5px 5px 50px rgba(0, 0, 0.212);
+    background: #BAF2E9; 
+}
+
+/* Estilos para a imagem no formulário */
+.form-image {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #BAF2E9; 
+}
+
+.form-image img {
+    width: 100%rem;
+}
+
+/* Estilos para o formulário */
+.form {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    padding: 6rem;
+}
+
+/* Estilos para o cabeçalho do formulário */
+.form-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-header h1::after {
+    content: '';
+    display: block;
+    width: 10rem;
+    height: 0.5rem;
+    background-color: #F2BAC9;
+    margin: 0 auto;
+    position: absolute;
+    border-radius: 10px;
+    margin-bottom: 0.1rem;
+}
+
+/* Estilos para os grupos de entrada */
+.input-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+}
+
+/* Estilos para a caixa de entrada */
+.input-box {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.5rem;
+}
+
+.input-box input {
+    margin: 0.6rem 0;
+    padding: 0.8rem 1.2rem;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 1px 1px 6px #0000001c;
+    font-size: 0.8rem;
+}
+
+.input-box input:focus-visible {
+    outline: 1px solid #F2BAC9;
+}
+
+.input-box label,
+.gender-title h6 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #000000c0;
+}
+
+.input-box input::placeholder {
+    color: #000000be;
+}
+
+/* Estilos para o botão de continuar */
+.continue-button button {
+    width: 100%;
+    border: none;
+    background-color: #F2BAC9;
+    padding: 0.62rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.continue-button button:hover {
+    background-color: #BAF2E9; 
+}
+
+.continue-button button a {
+    text-decoration: none;
+    font-size: 0.93rem;
+    font-weight: 500;
+    color: #000;
+}
+
+/* Cores */
+/* Cores: #B0F2B4, #BAF2E9, #BAD7F2, #F2BAC9 */
+
+/* Estilos para a área de navegação */
+.container-fluid{
+    background-color: #BAF2E9; 
+}
+
+/* Estilos para a barra de navegação */
+.navbar-nav{
+    margin-left: auto; 
+}
+
+/* Estilos para os links na barra de navegação */
+.nav-link[href="./index.html"]:hover {
+    background-color: #B0F2B4; 
+}
+
+.nav-link[href="./sobreNos.html"]:hover {
+    background-color: #BAF2E9; /* Cor para o link 'Sobre nós' */
+}
+
+.nav-link[href="./entreEmContato.html"]:hover {
+    background-color: #fde3a7d7;/* Cor para o link 'Entre em contato' */
+}
+
+.nav-link[href="./login.html"]:hover {
+    background-color: #B0F2B4;  /* Cor para o link 'Login' */
+}
+
+.nav-link[href="./cadastreSe.html"] {
+    background-color: #F2BAC9; /* Cor para o link 'Cadastre-se' */
+}
+
+/* Media queries */
+@media screen and (max-width: 1330px) {
+    .form-image {
+        display: none; /* Ocultar a imagem em telas menores */
+    }
+    .container {
+        width: 50%; /* Largura do contêiner em telas menores */
+    }
+    .form {
+        width: 100%; /* Largura do formulário em telas menores */
+    }
+}
+
+@media screen and (max-width: 1064px) {
+    .container {
+        width: 90%; /* Largura do contêiner em telas ainda menores */
+        height: auto; /* Altura automática */
+    }
+    .input-group {
+        flex-direction: column; /* Mudar a direção do grupo de entrada */
+        z-index: 5;
+        padding-right: 5rem;
+        max-height: 30rem;
+        flex-wrap: nowrap;
+    }
+}

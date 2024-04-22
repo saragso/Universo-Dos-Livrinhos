@@ -1,0 +1,321 @@
+/* Importando a fonte 'fredoka' */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
+
+/* Estilos gerais para o corpo do documento */
+body {
+	margin: 0px;
+	padding: 1%;
+	font-family: 'Poppins', sans-serif; /* Define a família de fontes */
+	color: #555e58; /* Define a cor do texto */
+	text-transform: capitalize; /* Transforma o texto em maiúsculas */
+	font-weight: 400; /* Define o peso da fonte */
+}
+
+/* Estilos para os ícones da biblioteca Material Icons */
+@font-face {
+  font-family: 'Fredoka';
+  font-style: normal;
+  src: url(https://example.com/MaterialIcons-Regular.eot); /* URL do arquivo de fonte para IE6-8 */
+  src: local('Material Icons'),
+    local('MaterialIcons-Regular'),
+    url(https://example.com/MaterialIcons-Regular.woff2) format('woff2'), /* URL do arquivo de fonte WOFF2 */
+    url(https://example.com/MaterialIcons-Regular.woff) format('woff'), /* URL do arquivo de fonte WOFF */
+    url(https://example.com/MaterialIcons-Regular.ttf) format('truetype'); /* URL do arquivo de fonte TrueType */
+}
+
+.material-icons {
+  font-family: 'Fredoka'; /* Usa a fonte Fredoka */
+  font-weight: normal; /* Define o peso da fonte */
+  font-style: normal; /* Define o estilo da fonte */
+  font-size: 24px; /* Tamanho preferido dos ícones */
+  display: inline-block; /* Exibe os ícones em linha */
+  line-height: 1; /* Define a altura da linha */
+  text-transform: none; /* Não aplica transformação de texto */
+  letter-spacing: normal; /* Espaçamento normal entre letras */
+  word-wrap: normal; /* Não quebra palavras */
+  white-space: nowrap; /* Não permite quebras de linha */
+  direction: ltr; /* Direção do texto da esquerda para a direita */
+
+  /* Suporte para navegadores WebKit */
+  -webkit-font-smoothing: antialiased;
+  /* Suporte para Safari e Chrome */
+  text-rendering: optimizeLegibility;
+  /* Suporte para Firefox */
+  -moz-osx-font-smoothing: grayscale;
+  /* Suporte para IE */
+  font-feature-settings: 'liga';
+}
+
+/* Estilos para a tabela */
+.table-wrapper {
+	background-color: #fff; /* Cor de fundo da tabela */
+	margin-left: 1rem; /* Margem à esquerda */
+	width: 100%; /* Largura total */
+	border-radius: 3px; /* Borda arredondada */
+	box-shadow: 0 1px 1px rgb(0 0 0 / 5%); /* Sombra */
+}
+
+.table-title {
+	background: #F2BAC9; /* Cor de fundo do título da tabela */
+	color: #fff; /* Cor do texto do título */
+	position: sticky; /* Posição fixa */
+	top: 0; /* Alinhamento no topo */
+	width: 100%; /* Largura total */
+	left: 0; /* Alinhamento à esquerda */
+	padding: 10px 30px; /* Preenchimento */
+	border-radius: 0px 0px 0 0; /* Borda arredondada */
+}
+
+/* Estilos para os cabeçalhos da tabela */
+.table-title h2 {
+	margin: 5px 0 0; /* Margem superior */
+	font-size: 17px; /* Tamanho da fonte */
+}
+
+/* Estilos para os botões dentro do título da tabela */
+.table-title .btn-group {
+	float: right; /* Alinhamento à direita */
+}
+
+.table-title .btn {
+	color: #fff; /* Cor do texto do botão */
+	float: right; /* Alinhamento à direita */
+	font-size: 13px; /* Tamanho da fonte */
+	border: none; /* Sem borda */
+	min-width: 50px; /* Largura mínima */
+	border-radius: 2px; /* Borda arredondada */
+	border: none; /* Sem borda */
+	outline: none!important; /* Sem contorno */
+	margin-left: 10px; /* Margem à esquerda */
+}
+
+/* Estilos para os ícones dentro dos botões */
+.table-title .btn i {
+	float: left; /* Alinhamento à esquerda */
+	font-size: 21px; /* Tamanho do ícone */
+	margin-right: 5px; /* Margem à direita */
+}
+
+/* Estilos para o texto dentro dos botões */
+.table-title .btn span {
+	float: left; /* Alinhamento à esquerda */
+	margin-top: 2px; /* Margem superior */
+}
+
+/* Estilos para as células da tabela */
+table.table tr th,
+table.table tr td {
+	border-color: #F2BAC9; /* Cor da borda */
+	padding: 8px 15px; /* Preenchimento */
+	font-size: 14px; /* Tamanho da fonte */
+	font-weight: 400; /* Peso da fonte */
+	vertical-align: middle; /* Alinhamento vertical */
+}
+
+/* Estilos específicos para o primeiro cabeçalho da tabela */
+table.table tr th:first-child {
+	width: 60px; /* Largura */
+}
+
+/* Estilos específicos para o último cabeçalho da tabela */
+table.table tr th:last-child {
+	width: 100px; /* Largura */
+}
+
+/* Estilos para linhas alternadas da tabela */
+table.table-stripped tbody tr:nth-of-type(odd) {
+	background-color: #BAF2E9; /* Cor de fundo */
+}
+
+/* Estilos para linhas da tabela ao passar o mouse */
+table.table-stripped.table-hover tbody tr:hover {
+	background-color: #F2BAC9; /* Cor de fundo */
+}
+
+/* Estilos para os ícones dentro das células */
+table.table th i {
+	font-size: 17px; /* Tamanho do ícone */
+	margin: 6px 5px; /* Margem */
+	cursor: pointer; /* Cursor */
+}
+
+/* Estilos para as últimas células da tabela */
+table.table td:last-child {
+	opacity: 0.9; /* Opacidade */
+	font-size: 22px; /* Tamanho da fonte */
+	margin: 0px 5px; /* Margem */
+}
+
+/* Estilos para links dentro das células */
+table.table td a {
+	font-weight: bold; /* Peso da fonte */
+	color: #566787; /* Cor do texto */
+	display: inline-block; /* Exibição em bloco */
+	text-decoration: none; /* Sem decoração de texto */
+	outline: none!important; /* Sem contorno */
+}
+
+/* Estilos para links ao passar o mouse */
+table.table td a:hover {
+	color: #2196F3; /* Cor do texto ao passar o mouse */
+}
+
+/* Estilos específicos para links de edição */
+.edit {
+	color: #FFC107; /* Cor do texto */
+}
+
+/* Estilos específicos para links de exclusão */
+.delete {
+	color: #F44336; /* Cor do texto */
+}
+
+/* Estilos para os ícones dentro das células */
+table.table td i {
+	font-size: 19px; /* Tamanho do ícone */
+}
+
+/* Estilos para as imagens de avatar */
+table.table .avatar {
+	border-radius: 50%; /* Borda arredondada */
+	vertical-align: middle; /* Alinhamento vertical */
+	margin-right: 10px; /* Margem à direita */
+}
+
+/* Estilos para a paginação */
+.pagination {
+	float: right; /* Alinhamento à direita */
+	margin: 0 0 5px; /* Margem */
+}
+
+.pagination li a {
+	border: none; /* Sem borda */
+	font-size: 13px; /* Tamanho da fonte */
+	min-width: 30px; /* Largura mínima */
+	min-height: 30px; /* Altura mínima */
+	color: #999; /* Cor do texto */
+	margin: 0 2px; /* Margem */
+	line-height: 30px; /* Altura da linha */
+	border-radius: 2px!important; /* Borda arredondada */
+	text-align: center; /* Alinhamento do texto */
+	padding: 0 6px; /* Preenchimento */
+}
+
+.pagination li a:hover {
+	color: #666; /* Cor do texto ao passar o mouse */
+}
+
+/* Estilos para ícones de paginação desativados */
+.pagination li.disabled i {
+	color: #ccc; /* Cor do ícone */
+}
+
+/* Estilos para ícones de paginação */
+.pagination li i {
+	font-size: 16px; /* Tamanho do ícone */
+	padding-top: 6px; /* Preenchimento superior */
+}
+
+/* Estilos para texto de dica */
+.hint-text {
+	float: left; /* Alinhamento à esquerda */
+	margin-top: 10px; /* Margem superior */
+	font-size: 13px; /* Tamanho da fonte */
+}
+
+/* Estilos para checkbox personalizado */
+.custom-checkbox {
+	position: relative; /* Posição relativa */
+}
+
+.custom-checkbox input[type="checkbox"] {
+	opacity: 0; /* Opacidade */
+	position: absolute; /* Posição absoluta */
+	margin: 5px 0 0 3px; /* Margem */
+	z-index: 9; /* Índice z */
+}
+
+.custom-checkbox label:before {
+	width: 18px; /* Largura */
+	height: 18px; /* Altura */
+}
+
+.custom-checkbox label:before {
+	content: ""; /* Conteúdo vazio */
+	margin-right: 10px; /* Margem à direita */
+	display: inline-block; /* Exibição em bloco */
+	vertical-align: text-top; /* Alinhamento vertical */
+	background-color: #F2BAC9; /* Cor de fundo */
+	border: 1px solid #bbb; /* Borda */
+	border-radius: 2px; /* Borda arredondada */
+	box-sizing: border-box; /* Caixa de dimensionamento */
+	z-index: 2; /* Índice z */
+}
+
+.custom-checkbox input[type="checkbox"]:checked + label:after {
+	content: ""; /* Conteúdo vazio */
+	position: absolute; /* Posição absoluta */
+	left: 6px; /* Posição à esquerda */
+	top: 3px; /* Posição superior */
+	width: 6px; /* Largura */
+	height: 11px; /* Altura */
+	border: solid #000; /* Borda sólida */
+	border-width: 0 3px 3px 0; /* Largura da borda */
+	transform: inherit; /* Transformação */
+	z-index: 3; /* Índice z */
+	transform: rotatez(45deg); /* Rotação */
+}
+
+.custom-checkbox input[type="checkbox"]:checked + label:before {
+	border-color: #03A9F4; /* Cor da borda */
+	background: #03A9F4; /* Cor de fundo */
+}
+
+.custom-checkbox input[type="checkbox"]:checked + label:after {
+	border-color: #fff; /* Cor da borda */
+}
+
+.custom-checkbox input[type="checkbox"]:disabled + label:before {
+	color: #BAF2E9; /* Cor do texto */
+	cursor: auto; /* Cursor */
+	box-shadow: none; /* Sombra */
+	background: #BAF2E9; /* Cor de fundo */
+}
+
+/* Estilos para a exibição do menu lateral */
+#sidebar.show-nav,
+.body-overlay.show-nav {
+	transform: translateX(0%); /* Translação horizontal */
+	opacity: 1; /* Opacidade */
+	display: block; /* Exibição */
+	visibility: visible; /* Visibilidade */
+	z-index: 15; /* Índice z */
+}
+
+/* Estilos para a visualização do menu lateral em telas menores */
+@media only screen and (max-width: 992px) {
+	#sidebar {
+		position: fixed; /* Posição fixa */
+		top: 0; /* Alinhamento ao topo */
+		bottom: 0; /* Alinhamento ao fundo */
+		z-index: 10; /* Índice z */
+		width: 260px; /* Largura */
+		transform: translateX(-100%); /* Translação horizontal */
+		transition: all 150ms linear; /* Transição */
+		box-shadow: none!important; /* Sem sombra */
+	}
+
+	.body-overlay {
+		position: fixed; /* Posição fixa */
+		top: 0; /* Alinhamento ao topo */
+		left: 0; /* Alinhamento à esquerda */
+		width: 100%; /* Largura total */
+		height: 100%; /* Altura total */
+		display: none; /* Ocultar */
+		visibility: hidden; /* Visibilidade */
+		opacity: 0; /* Opacidade */
+		z-index: 3; /* Índice z */
+		transition: all 150ms linear; /* Transição */
+		background-color: rgba(0, 0, 0, 0.5); /* Cor de fundo */
+	}
+}

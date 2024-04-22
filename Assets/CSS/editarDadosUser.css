@@ -1,0 +1,233 @@
+/*importando a fonte 'fredoka'*/
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
+
+/*Conteúdos gerais*/
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Fredoka", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+/*Estilizando o corpo da página*/
+body {
+  display: flex;
+  min-height: 100vh;
+  background-color: #F2BAC9;
+}
+
+/*Estilizando o conteúdo principal da página*/
+main {
+  padding: 20px;
+  position: fixed;
+  z-index: 1;
+  padding-left: calc(82px + 20px);
+}
+
+/*estilizando o container*/
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 100px;
+  margin-left: 28px;
+  margin-top: -20px;
+
+}
+
+/*Estilizando o card*/
+.card {
+  width: 540px;
+  background-color: white;
+  opacity: 80%;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+}
+
+/*Estilizando o texto do conteúdo*/
+.container-text {
+  margin-top: -40px;
+  margin-top: 10px;
+}
+
+h1.nome {
+  margin: 0;
+
+}
+
+h3.desc {
+  font-weight: 400;
+
+}
+
+/*conteúdo da página*/
+/*Estilizando o formulário*/
+.form {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    padding: 3rem;
+}
+
+.form-header {
+    margin-bottom: 3rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-header h1::after {
+    content: '';
+    display: block;
+    width: 12rem;
+    height: 0.5rem;
+    background-color: #81F7E5;
+    margin: 0 auto;
+    position: absolute;
+    border-radius: 10px;
+}
+
+/*Estilizando inputs*/
+.input-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0rem 0;
+}
+
+.input-box {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.1rem;
+}
+
+.input-box input {
+    margin: 0.5rem 0;
+    padding: 0.8rem 3rem;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 1px 1px 6px #0000001c;
+    font-size: 0.8rem;
+}
+
+.input-box input:hover {
+    background-color: #eeeeee75;
+}
+
+.input-box input:focus-visible {
+    outline: 1px solid #81F7E5;
+}
+
+.input-box label,
+.gender-title h6 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #000000c0;
+}
+
+.input-box input::placeholder {
+    color: #000000be;
+}
+
+/*Estilizando o botão de salvar alterações*/
+.continue-button button {
+    width: 100%;
+    margin-top: 2.5rem;
+    border: none;
+    background-color: #f2E2BA;
+    padding: 0.62rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: -1px;
+}
+
+.continue-button button:hover {
+    background-color: #81F7E5;
+}
+
+.continue-button button a {
+    text-decoration: none;
+    font-size: 0.93rem;
+    font-weight: 500;
+    color: #000;
+}
+
+  /*media queries para ajustes de layout responsivo*/
+@media screen and (max-width: 1330px) {
+    .form-image {
+        display: none;
+    }
+    .container {
+        width: 50%;
+    }
+    .form {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 1064px) {
+    .container {
+        width: 90%;
+        height: auto;
+    }
+    .input-group {
+        flex-direction: column;
+        z-index: 5;
+        padding-right: 5rem;
+        max-height: 10rem;
+        overflow-y: scroll;
+        flex-wrap: nowrap;
+    }
+}
+
+/*Estilizando o botão de alterar foto*/
+.botao-foto button {
+  width: 50%;
+  margin-top: 2.5rem;
+  border: none;
+  background-color: #f2E2BA;
+  padding: 0.62rem;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.botao-foto button:hover {
+  background-color: #81F7E5;
+}
+
+.botao-foto button a {
+  text-decoration: none;
+  font-size: 0.93rem;
+  font-weight: 500;
+  color: #000;
+}
+
+/*Estilizando a foto de perfil*/
+.foto-perfil {
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  text-align: center;
+}
+
+.foto {
+  margin-right: -80px; 
+
+}
+
+.alterar-foto {
+  width: 500px;
+}

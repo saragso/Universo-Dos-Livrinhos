@@ -1,0 +1,262 @@
+/*importando a fonte 'fredoka'*/
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
+
+/*Estilos gerais*/
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Fredoka", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+/*Estilizando o corpo da página*/
+body {
+  display: flex;
+  min-height: 100vh;
+  background-color: #F2BAC9;
+}
+
+/*Estilizando o conteúdo principal da página*/
+main {
+  padding: 20px;
+  position: fixed;
+  z-index: 1;
+  padding-left: calc(82px + 20px);
+}
+
+/*Estilizando o menu lateral*/
+#sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: white;
+  height: 100vh;
+  border-radius: 0px 18px 18px 0px;
+  position: relative;
+  transition: all 0.5s;
+  min-width: 82px;
+  z-index: 2;
+}
+
+#sidebar-content {
+  padding: 12px;
+}
+
+/*Estilizando as informações do usuário no menu lateral*/
+#user {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+#user-avatar {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+#user-infos {
+  display: flex;
+  flex-direction: column;
+}
+
+#user-infos span:last-child {
+  color: black;
+  font-size: 12px;
+}
+
+/*Estilizando os itens do menu lateral*/
+#side-itens {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  list-style: none;
+}
+
+.side-item {
+  border-radius: 8px;
+  padding: 14px;
+  cursor: pointer;
+}
+
+.side-item.active {
+  background-color: #F2E2BA;
+}
+
+.side-item:hover:not(.active),
+#logout-btn:hover {
+  background-color: #F2BAC9; /*Define a cor de fundo ao passar o mouse*/
+}
+
+/*Estilizando os links da barra lateral*/
+.side-item a {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+}
+
+.side-item.active a {
+  color: black;
+}
+
+.side-item a img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+}
+
+/*Estilizando o botão de logout*/
+#logout {
+  border-top: 1px solid #F2BAC9;
+  padding: 12px;
+}
+
+#logout-btn {
+  border: none;
+  padding: 12px;
+  font-size: 14px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  border-radius: 8px;
+  text-align: start;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+/*Estilizando o botão de abrir o meny lateral*/
+#open-btn {
+  position: absolute;
+  top: 30px;
+  right: -10px;
+  background-color: #F2E2BA;
+  color: black;
+  /*ver de onde é essa cor*/
+  border-radius: 100%;
+  width: 20px;
+  height: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+#open-btn-icon {
+  transition: transform 0.3s ease;
+}
+
+.open-sidebar #open-btn-icon {
+  transform: rotate(180deg);
+}
+
+/*Estilizando a descrição de itens do menu lateral*/
+.item-description {
+  width: 0px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 14px;
+  transition: width 0.6s;
+  height: 0px;
+}
+
+/*Estilizando o menu lateral quando aberto*/
+#sidebar.open-sidebar {
+  min-width: 15%;
+}
+
+#sidebar.open-sidebar .item-description {
+  width: 150px;
+  height: auto;
+}
+
+#sidebar.open-sidebar .side-item a {
+  justify-content: flex-start;
+  gap: 14px;
+}
+
+/*Estilizando perfil*/
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 100px;
+  margin-left: 280px;
+}
+
+/*Estilizando o card do usuário*/
+.card {
+  width: 540px;
+  background-color: white;
+  opacity: 95%;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+/*Estilizando a foto de perfil*/
+.profile-img {
+  width: 120px;
+  border-radius: 50%;
+  border: #F2BAC9 5px solid;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  align-items: center;
+  margin-top: 50px;
+}
+
+/*Estilizando o texto do container*/
+.container-text {
+  margin-top: -40px;
+  margin-top: 10px;
+}
+
+h1.nome {
+  margin: 0;
+
+}
+
+h3.desc {
+  font-weight: 400;
+
+}
+
+/* botão editar dados*/
+
+.login-button {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+
+}
+
+.login-button button {
+  border: none;
+  background-color: #f2E2BA;
+  padding: 0.5rem 3rem;
+  border-right: 5px;
+  cursor: pointer;
+
+}
+
+.login-button button:hover {
+  background-color: #81F7E5;
+
+}
+
+.login-button button a {
+  text-decoration: none;
+  font-weight: 100%;
+  color: black;
+}

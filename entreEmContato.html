@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8"> <!-- Define o conjunto de caracteres UTF-8 para suportar diferentes idiomas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Define a largura da tela e a escala inicial para dispositivos móveis -->
+    <!-- Carrega o arquivo CSS do framework Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Carrega o arquivo CSS personalizado -->
+    <link rel="stylesheet" href="./Assets/CSS/entreEmContato.css">
+    <!-- Define o ícone da página -->
+    <link rel="shortcut icon" href="./Assets/Imagens/logo.png" type="image/x-icon">
+    <title>Entre em contato!</title> <!-- Define o título da página -->
+</head>
+<body>
+    <header> <!-- Início do cabeçalho da página -->
+    <!-- Navbar utilizando o Bootstrap -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid"> <!-- Div que envolve todo o navbar -->
+          <a class="navbar-brand" href="sobreNos.html"><img src="./Assets/Imagens/Logo.png" alt="" width="50" height="50">Universo dos Livrinhos</a> <!-- Link para a página "sobreNos.html" -->
+          <!-- Botão de toggle para telas menores -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <!-- Div para o conteúdo do menu -->
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <!-- Links do menu -->
+              <a class="nav-link" href="./index.html">Página principal</a>
+              <a class="nav-link" href="./sobreNos.html">Sobre nós</a>
+              <a class="nav-link" href="./entreEmContato.html">Entre em contato</a>
+              <a class="nav-link" href="./login.html">Login</a>
+              <a class="nav-link" href="./cadastreSe.html">Cadastre-se</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    
+      <!-- Fim do navbar -->
+    </header> <!-- Fim do cabeçalho -->
+
+    <main>
+        <section class="home">
+            <div class="container">
+        
+                <div class="form">
+                    <form action="#"> <!-- Formulário para envio de mensagem -->
+                        <div class="form-header">
+                            <div class="title">
+                                <h1>Mande mensagem!</h1> <!-- Título do formulário -->
+                            </div>
+                        </div>
+                        <!-- Campos do formulário -->
+                        <div class="input-group">
+                            <div class="input-box">
+                                <label for="firstname">Nome</label>
+                                <input id="firstname" type="text" name="firstname" placeholder="Digite seu primeiro nome" required maxlength="30">
+                            </div>
+        
+                            <div class="input-box">
+                                <label for="lastname">Sobrenome</label>
+                                <input id="lastname" type="text" name="lastname" placeholder="Digite seu sobrenome" required maxlength="50">
+                            </div>
+        
+                            <div class="input-box">
+                                <label for="email">E-mail</label>
+                                <input id="email" type="email" name="email" placeholder="Digite seu e-mail" required maxlength="80">
+                            </div>
+        
+                            <div class="input-box">
+                                <label for="number">Celular</label>
+                                <input id="number" type="tel" name="number" placeholder="(xx) xxxx-xxxx" required maxlength="11">
+                            </div>
+        
+                            <div class="input-box">
+                                <label for="text">Mensagem</label>
+                                <textarea name="mensagem" id="mensagem-texto" cols="60" rows="8" placeholder="Digite sua mensagem aqui" maxlength="500"></textarea>
+                            </div>
+                        </div>
+                        <!-- Botão para enviar a mensagem -->
+                        <div class="continue-button">
+                            <button><a href="#">Enviar mensagem</a></button>
+                        </div>            
+                    </form>
+                </div>
+        
+                <div class="form2">
+                    <div class="form2-header">
+                        <div class="title2">
+                            <h1>Entre em contato conosco!</h1> <!-- Título da seção de informações de contato -->
+                        </div>
+                        <!-- Informações de contato -->
+                        <div class="input-group2">
+                            <div class="input-box2">
+                                <img src="./Assets/Imagens/telephone.svg" alt="Telefone">
+                                <label for="telefone">Telefone: (11) 1234-5678</label>
+                            </div>
+        
+                            <div class="input-box2">
+                                <img src="./Assets/Imagens/envelope.svg" alt="Envelope email">
+                                <label for="email">E-mail: livrariaencantada@gmail.com</label>
+                            </div>
+        
+                            <div class="input-box2">
+                                <img src="./Assets/Imagens/geo-alt.svg" alt="localização">
+                                <label for="loc">Endereço: Av. da Liberdade, 654 - Liberdade, São Paulo - SP, 01502-001</label>
+                            </div>
+                        </div>
+                        <!-- Mapa de localização -->
+                        <div class="mapbox">
+                            <div class="map">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1828.6252240167864!2d-46.63851284394061!3d-23.5594469657426!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59e7ec46f3af%3A0xf1bd159adb2053de!2sFMU%20-%20Campus%20Gastronomia!5e0!3m2!1spt-BR!2sbr!4v1713026930606!5m2!1spt-BR!2sbr" width="500" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!--Script bootstrap-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
