@@ -18,6 +18,7 @@ body {
   display: flex;
   min-height: 100vh;
   background-color: #F2BAC9;
+  overflow-y: scroll; /* Adiciona rolagem vertical quando necessário */
 }
 
 /*Estilizando o título da página*/
@@ -28,12 +29,11 @@ h1 {
 /*Estilizando o conteúdo principal da página*/
 main {
   padding: 20px;
-  position: fixed;
+  position: sticky;
   z-index: 1;
   padding-left: calc(82px + 20px);
 }
 
-/*Estilizando o menu lateral*/
 #sidebar {
   display: flex;
   flex-direction: column;
@@ -41,7 +41,9 @@ main {
   background-color: white;
   height: 100vh;
   border-radius: 0px 18px 18px 0px;
-  position: relative;
+  position: fixed;  /* Mantém o menu lateral fixo */
+  top: 0;
+  left: 0;
   transition: all 0.5s;
   min-width: 82px;
   z-index: 2;
