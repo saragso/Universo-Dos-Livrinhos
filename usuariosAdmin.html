@@ -93,8 +93,6 @@
           <h2 class="ml-lg-2">Usuários</h2>
         </div>
         <div class="col-sm-6 p-0 d-flex justify-content-lg-end justify-content-center">
-          <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal">
-		  <i class="material-icons">&#xE147;</i> <span>Novo usuário</span></a>
           <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal">
 		  <i class="material-icons">&#xE15C;</i> <span>Excluir</span></a>
         </div>
@@ -111,9 +109,9 @@
           </th>
           <th>Foto de perfil</th>
           <th>id_aluno</th>
-          <th>Nome do aluno</th>
-          <th>Nome do responsável</th>
-          <th>E-mail do responsável</th>
+          <th>Nome</th>
+          <th>Sobrenome</th>
+          <th>E-mail</th>
           <th>Senha</th>
         </tr>
       </thead>
@@ -129,8 +127,8 @@
           <td>Foto de perfil</td>
           <td>001</td>
           <td>nome</td>
-          <td>nome</td>
-          <td>email</td>
+          <td>sobrenome</td>
+          <td>e-mail</td>
           <td>senha</td>
           <td>
             <a href="#editEmployeeModal" class="edit" data-toggle="modal">
@@ -138,108 +136,7 @@
             <a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
 			<i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
           </td>
-        </tr>
-        <tr>
-          <td>
-            <span class="custom-checkbox">
-			<input type="checkbox" id="checkbox1" name="options[]" value="1">
-			<label for="checkbox1"></label>
-							</span>
-          </td>
-          <td>Foto de perfil</td>
-          <td>002</td>
-          <td>nome</td>
-          <td>nome</td>
-          <td>email</td>
-          <td>senha</td>
-          <td>
-            <a href="#editEmployeeModal" class="edit" data-toggle="modal">
-			<i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-            <a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
-			<i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <span class="custom-checkbox">
-			<input type="checkbox" id="checkbox1" name="options[]" value="1">
-			<label for="checkbox1"></label>
-							</span>
-          </td>
-        <td>Foto de perfil</td>
-        <td>003</td>
-        <td>nome</td>
-        <td>nome</td>
-        <td>email</td>
-        <td>senha</td>
-          <td>
-            <a href="#editEmployeeModal" class="edit" data-toggle="modal">
-			<i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-            <a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
-			<i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <span class="custom-checkbox">
-			<input type="checkbox" id="checkbox1" name="options[]" value="1">
-			<label for="checkbox1"></label>
-							</span>
-          </td>
-          <td>Foto de perfil</td>
-          <td>004</td>
-          <td>nome</td>
-          <td>nome</td>
-          <td>email</td>
-          <td>senha</td>
-          <td>
-            <a href="#editEmployeeModal" class="edit" data-toggle="modal">
-			<i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-            <a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
-			<i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <span class="custom-checkbox">
-			<input type="checkbox" id="checkbox1" name="options[]" value="1">
-			<label for="checkbox1"></label>
-							</span>
-          </td>
-          <td>Foto de perfil</td>
-          <td>005</td>
-          <td>nome</td>
-          <td>nome</td>
-          <td>email</td>
-          <td>senha</td>
-          <td>
-            <a href="#editEmployeeModal" class="edit" data-toggle="modal">
-			<i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-            <a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
-			<i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <span class="custom-checkbox">
-			<input type="checkbox" id="checkbox1" name="options[]" value="1">
-			<label for="checkbox1"></label>
-							</span>
-          </td>
-          <td>Foto de perfil</td>
-          <td>006</td>
-          <td>nome</td>
-          <td>nome</td>
-          <td>email</td>
-          <td>senha</td>
-          <td>
-            <a href="#editEmployeeModal" class="edit" data-toggle="modal">
-			<i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-            <a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
-			<i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-          </td>
-        </tr>
-        
+        </tr>       
     
       </tbody>
     </table>
@@ -258,50 +155,6 @@
   </div>
 </div>
 
-<!-- NOVO USUÁRIO HTML -->
-<div id="addEmployeeModal" class="modal fade">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <form>
-        <div class="modal-header">
-          <h4 class="modal-title">Novo usuário</h4>
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        </div>
-        <div class="modal-body">
-          <div class="form-group">
-            <label>Foto de perfil</label>
-            <input type="text" class="form-control" required>
-          </div>
-          <div class="form-group">
-            <label>Id_aluno</label>
-            <input type="email" class="form-control" required>
-          </div>
-          <div class="form-group">
-            <label>Nome do aluno</label>
-            <input type="text" class="form-control" required>
-          </div>
-          <div class="form-group">
-            <label>Nome do responsável</label>
-            <input type="text" class="form-control" required>
-          </div>
-          <div class="form-group">
-            <label>E-mail do responsável</label>
-            <input type="text" class="form-control" required>
-          </div>
-          <div class="form-group">
-            <label>Senha</label>
-            <input type="password" class="form-control" required>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
-          <input type="submit" class="btn btn-success" value="Adicionar">
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
-
 <!-- EDITAR HTML -->
 <div id="editEmployeeModal" class="modal fade">
   <div class="modal-dialog">
@@ -314,19 +167,15 @@
         </div>
         <div class="modal-body">
           <div class="form-group">
-            <label>Foto de perfil</label>
-            <input type="text" class="form-control" required>
-          </div>
-          <div class="form-group">
-            <label>Nome do aluno</label>
+            <label>Nome</label>
             <input type="email" class="form-control" required>
           </div>
           <div class="form-group">
-            <label>Nome do responsável</label>
+            <label>Sobrenome</label>
             <input type="text" class="form-control" required>
           </div>
           <div class="form-group">
-            <label>E-mail do responsável</label>
+            <label>E-mail</label>
             <input type="text" class="form-control" required>
           </div>
         </div>
