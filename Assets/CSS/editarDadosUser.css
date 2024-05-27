@@ -1,7 +1,7 @@
-/*importando a fonte 'fredoka'*/
+/* Importando a fonte 'Fredoka' */
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
 
-/*Conteúdos gerais*/
+/* Estilos gerais */
 * {
   padding: 0;
   margin: 0;
@@ -9,69 +9,216 @@
   font-family: "Fredoka", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
-  font-variation-settings:
-    "wdth" 100;
+  font-variation-settings: "wdth" 100;
 }
 
-/*Estilizando o corpo da página*/
+/* Estilizando o corpo da página */
 body {
   display: flex;
   min-height: 100vh;
   background-color: #F2BAC9;
+  margin: 0;
 }
 
-/*Estilizando o conteúdo principal da página*/
+/* Estilizando o conteúdo principal da página */
 main {
   padding: 20px;
-  position: fixed;
-  z-index: 1;
-  padding-left: calc(82px + 20px);
+  width: 100%;
+  flex-grow: 1;
 }
 
-/*estilizando o container*/
+/* Estilizando o menu lateral */
+#sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: white;
+  height: 100vh;
+  border-radius: 0px 18px 18px 0px;
+  position: fixed;  /* Mantém o menu lateral fixo */
+  top: 0;
+  left: 0;
+  transition: all 0.5s;
+  min-width: 82px;
+  z-index: 2;
+}
+
+#sidebar-content {
+  padding: 12px;
+}
+
+/* Estilizando as informações do usuário no menu lateral */
+#user {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+#user-avatar {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+#user-infos {
+  display: flex;
+  flex-direction: column;
+}
+
+#user-infos span:last-child {
+  color: black;
+  font-size: 12px;
+}
+
+/* Estilizando os itens do menu lateral */
+#side-itens {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  list-style: none;
+}
+
+.side-item {
+  border-radius: 8px;
+  padding: 14px;
+  cursor: pointer;
+}
+
+.side-item.active {
+  background-color: #F2E2BA;
+}
+
+.side-item:hover:not(.active),
+#logout-btn:hover {
+  background-color: #F2BAC9; /* Define a cor de fundo ao passar o mouse */
+}
+
+/* Estilizando os links da barra lateral */
+.side-item a {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+}
+
+.side-item.active a {
+  color: black;
+}
+
+.side-item a img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+}
+
+/* Estilizando o botão de logout */
+#logout {
+  border-top: 1px solid #F2BAC9;
+  padding: 12px;
+}
+
+#logout-btn {
+  border: none;
+  padding: 12px;
+  font-size: 14px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  border-radius: 8px;
+  text-align: start;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+/* Estilizando o botão de abrir o menu lateral */
+#open-btn {
+  position: absolute;
+  top: 30px;
+  right: -10px;
+  background-color: #F2E2BA;
+  color: black;
+  border-radius: 100%;
+  width: 20px;
+  height: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+#open-btn-icon {
+  transition: transform 0.3s ease;
+}
+
+.open-sidebar #open-btn-icon {
+  transform: rotate(180deg);
+}
+
+/* Estilizando a descrição de itens do menu lateral */
+.item-description {
+  width: 0px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 14px;
+  transition: width 0.6s;
+  height: 0px;
+}
+
+/* Estilizando o menu lateral quando aberto */
+#sidebar.open-sidebar {
+  min-width: 15%;
+}
+
+#sidebar.open-sidebar .item-description {
+  width: 150px;
+  height: auto;
+}
+
+#sidebar.open-sidebar .side-item a {
+  justify-content: flex-start;
+  gap: 14px;
+}
+
+/* Estilizando o container */
 .container {
   width: 100%;
-  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 100px;
-  margin-left: 28px;
-  margin-top: -20px;
-
+  margin-top: 20px;
 }
 
-/*Estilizando o card*/
+/* Estilizando o card */
 .card {
   width: 540px;
   background-color: white;
-  opacity: 80%;
+  opacity: 95%;
   border-radius: 16px;
   display: flex;
   align-items: center;
   flex-direction: column;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-
 }
 
-/*Estilizando o texto do conteúdo*/
+/* Estilizando o texto do conteúdo */
 .container-text {
-  margin-top: -40px;
   margin-top: 10px;
 }
 
 h1.nome {
   margin: 0;
-
 }
 
 h3.desc {
   font-weight: 400;
-
 }
 
-/*conteúdo da página*/
-/*Estilizando o formulário*/
+/* Conteúdo da página */
+/* Estilizando o formulário */
 .form {
     width: 50%;
     display: flex;
@@ -99,7 +246,7 @@ h3.desc {
     border-radius: 10px;
 }
 
-/*Estilizando inputs*/
+/* Estilizando inputs */
 .input-group {
     display: flex;
     flex-wrap: wrap;
@@ -115,7 +262,7 @@ h3.desc {
 
 .input-box input {
     margin: 0.5rem 0;
-    padding: 0.8rem 3rem;
+    padding: 0.8rem 10rem;
     border: none;
     border-radius: 10px;
     box-shadow: 1px 1px 6px #0000001c;
@@ -141,7 +288,7 @@ h3.desc {
     color: #000000be;
 }
 
-/*Estilizando o botão de salvar alterações*/
+/* Estilizando o botão de salvar alterações */
 .continue-button button {
     width: 100%;
     margin-top: 2.5rem;
@@ -150,7 +297,6 @@ h3.desc {
     padding: 0.62rem;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: -1px;
 }
 
 .continue-button button:hover {
@@ -164,7 +310,7 @@ h3.desc {
     color: #000;
 }
 
-  /*media queries para ajustes de layout responsivo*/
+/* Media queries para ajustes de layout responsivo */
 @media screen and (max-width: 1330px) {
     .form-image {
         display: none;
@@ -192,7 +338,7 @@ h3.desc {
     }
 }
 
-/*Estilizando o botão de alterar foto*/
+/* Estilizando o botão de alterar foto */
 .botao-foto button {
   width: 50%;
   margin-top: 2.5rem;
@@ -215,7 +361,7 @@ h3.desc {
   color: #000;
 }
 
-/*Estilizando a foto de perfil*/
+/* Estilizando a foto de perfil */
 .foto-perfil {
   display: flex;
   align-items: center;
@@ -225,7 +371,6 @@ h3.desc {
 
 .foto {
   margin-right: -80px; 
-
 }
 
 .alterar-foto {

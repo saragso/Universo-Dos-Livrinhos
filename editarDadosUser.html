@@ -9,7 +9,79 @@
     <title>Editar dados</title> <!--titulo da página-->
 
 </head>
-<body>  
+<body> 
+    <!--início do menu lateral-->
+    <nav id="sidebar">
+        <div id="sidebar-content">
+            <div id="user">
+                <img src="./Assets/Imagens/avatar.png" id="user-avatar" alt="avatar do usuário" width="50px">
+                <p id="user-infos">
+                    <span class="item-description">
+                        Lara
+                    </span>
+                    <span class="item-description">
+                        7 anos, estudante
+                    </span>
+                </p>
+            </div>
+    
+            <ul id="side-itens">
+    
+                <li class="side-item">
+                    <a href="./inicioUser.html">
+                        <img class="icon-dashboard" src="./Assets/Imagens/icon homepage.png" alt="icone casa - dashboard" width="15px">
+                        <span class="item-description">
+                            Início
+                        </span>
+                    </a>
+                </li>
+    
+                <li class="side-item active">
+                    <a href="./perfilUser.html">
+                        <img class="icon-perfil" src="./Assets/Imagens/icon user.png" alt="icone perfil do usuário" width="15px">
+                        <span class="item-description">
+                            Perfil
+                        </span>
+                    </a>
+                </li>
+    
+                <li class="side-item">
+                    <a href="./livrosAlugadosUser.html">
+                        <img class="icon-livros-alugados" src="./Assets/Imagens/icon books.png" alt="icone livros alugados" width="15px">
+                        <span class="item-description">
+                            Livros alugados
+                        </span>
+                    </a>
+                </li>
+    
+                <li class="side-item">
+                    <a href="./catalogoLivrosUser.html">
+                        <img class="" src="./Assets/Imagens/icon catalog.png" alt="icone catálogo de livros" width="15px">
+                        <span class="item-description">
+                            Catálogo de livros
+                        </span>
+                    </a>
+                </li>
+                
+            </ul>
+    
+            <button id="open-btn">
+                <img id="open-btn-icon" src="./Assets/Imagens/icon seta.ico" alt="icone de seta" width="15px">
+            </button>
+        </div>
+        
+        <div id="logout">
+            <button id="logout-btn">
+                <img id="logout-btn-icon" src="./Assets/Imagens/icon logout.ico" alt="ícone logout" width="15px">
+                <span class="item-description">
+                    Logout
+                </span>
+            </button>
+        </div>
+
+    </nav> <!--fim do menu lateral-->
+    
+    
     <main> <!--conteúdo da página-->
         <div class="container">
             <div class="form">
@@ -19,60 +91,80 @@
                             <h1>Editar dados</h1>
                         </div>                   
                     </div>
-                    <div class="foto-perfil">
-                        <div class="foto">
-                            <img src="./Assets/Imagens/avatar.png" alt="foto de perfil do usuário Lara" width="100px">
-                        </div>
-                        <div class="alterar-foto">
-                            <p>Lara da Silva</p>
-                            <div class="botao-foto">
-                                <button><a href="#">Alterar foto</a> </button> 
+                    
+    <br>
+                    <div class="input-group">
+                        <div class="foto-perfil">
+                            <div class="foto">
+                                <img src="./Assets/Imagens/avatar.png" alt="foto de perfil do usuário Lara" width="100px">
+                                <div class="alterar-foto">
+                                    <div class="input-box">
+                                    <div class="botao-foto">
+                                        <button><a href="#">Alterar foto de perfil!</a> </button> 
+                                    </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-    <br>
+                    <br><br>
                     <div class="input-group">
                         <div class="input-box">
-                            <label for="nome-aluno">Nome completo do(a) aluno(a)</label>
+                            <label>Alterações no nome cadastrado!</label><br>
+                            <label for="nome-aluno">Nome</label>
                             <input id="Nome completo do aluno" type="text" name="nome-aluno" placeholder="Nome do(a) aluno(a)" required maxlength="30">
-                        </div>
-    
-                        <div class="input-box">
-                            <label for="nome-responsavel">Nome do responsável</label>
+                        
+                            <label for="sobrenome">Sobrenome</label>
                             <input id="nome-responsavel" type="text" name="nome-responsavel" placeholder="Nome do responsável" required maxlength="50">
+                        <!--Botão para salvar alterações-->
+                        <div class="continue-button">
+                            <button><a href="#">Salvar alterações no nome!</a> </button>
                         </div>
+                        </div>
+                    </div>
+                    <br><br>
+                    <div class="input-group">
                         <div class="input-box">
-                            <label for="email">E-mail de cadastro</label>
+                            <label>Alterações no e-mail cadastrado!</label><br>
+                            <label for="email">E-mail</label>
                             <input id="email" type="email" name="email" placeholder="E-mail de cadastro" required maxlength="80">
+                        <!--Botão para salvar alterações-->
+                        <div class="continue-button">
+                            <button><a href="#">Salvar e-mail alterado!</a> </button>
+                        </div>
                         </div>
     
+                    </div>
+                    <br><br>
+                    <div class="input-group">
                         <div class="input-box">
-                            <label for="number">Celular</label>
-                            <input id="number" type="tel" name="number" placeholder="(xx) xxxxx-xxxx" required maxlength="11">
+                            <label>Adicione ou altere o telefone cadastrado!</label><br>
+                            <label for="number">Telefone</label>
+                            <input id="number" type="tel" name="tel" placeholder="(xx) xxxxx-xxxx" required maxlength="11">
+                            <!--Botão para salvar alterações-->
+                        <div class="continue-button">
+                            <button><a href="#">Salvar telefone!</a> </button>
                         </div>
-
-                        <div class="input-box">
-                            <label for="password">Senha antiga</label>
-                            <input id="password" type="password" name="password" placeholder="Digite sua senha antiga" required maxlength="8">
                         </div>
-
+                    </div>
+                    <br><br>
+                    <div class="input-group">
                         <div class="input-box">
-                            <label for="new-password">Nova  senha</label>
+                            <label>Altere sua senha!</label><br>
+                            <label for="new-password">Nova senha</label>
                             <input id="new-password" type="password" name="new-password" placeholder="Digite sua nova senha" required maxlength="8">
-                        </div>
-    
-    
-                        <div class="input-box">
                             <label for="confirmPassword">Confirme sua nova Senha</label>
                             <input id="confirm-new-Password" type="password" name="confirm-new-Password" placeholder="Confirme sua senha" required maxlength="8">
+                        <!--Botão para salvar alterações-->
+                            <div class="continue-button">
+                                <button><a href="#">Salvar alteração de senha!</a> </button>
+                             </div>
+                        
                         </div>
-    
+                    </div>
                     </div>
     
-                    <!--Botão para salvar alterações-->
-                    <div class="continue-button">
-                        <button><a href="#">Salvar alterações</a> </button>
-                    </div>
+                    
                 </form>
             </div>
         </div>
