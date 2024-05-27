@@ -113,6 +113,7 @@
           <th>Classificação</th>
           <th>Sinopse</th>
           <th>Status</th>
+          <th>ID_Aluno</th>
           <th>Data de empréstimo</th>
           <th>Data de devolução</th>
 
@@ -136,6 +137,7 @@
           <td>4 - 7 anos</td>
           <td>À beira de uma floresta encantada, um monstro assustador encontra um estranho objeto, que ele cheira e lambe. Não tem gosto de nada! Com raiva, joga-o no chão. No entanto, esse objeto admirável vai mudar completamente sua vida e seu humor. Uma história engraçada, surpreendente e tocante sobre a magia dos livros e o prazer da leitura.</td>
           <td>Alugado</td>
+          <td>001</td>
           <td>16/04/2024</td>
           <td>23/04/2024</td>
           <td>
@@ -160,6 +162,7 @@
           <td>4 anos</td>
           <td>Bob é uma toupeira que adora etiquetar as coisas. Um dia, ele encontra uma coisa muito estranha. Uma coisa escamosa. Uma coisa escamosa com dentes pontudos. Ahhh! Cuidado, Bob!</td>
           <td>Alugar</td>
+          <td></td>
           <td>Data de empréstimo</td>
           <td>Data de devolução</td>
           <td>
@@ -184,6 +187,7 @@
           <td>3 - 5 anos</td>
           <td>Cada um tem um jeito. Uns são mais bagunceiros, outros muito tagarelas. Tem também aqueles que são mais criativos, tímidos, além dos mais engraçados. Outros são mais quietos, calados, organizados, tem até mesmo os mais solitários. Walter Sagardoy escreveu e Márcia Menezes ilustrou este livro sensível, que fala de amor, de ser quem realmente você é, para vivermos em um mundo melhor.</td>
           <td>Alugado</td>
+          <td>001</td>
           <td>16/04/2024</td>
           <td>23/04/2024</td>
           <td>
@@ -208,6 +212,7 @@
           <td>8 anos</td>
           <td>Em Como ser amigo - Um livro sobre amizade... Feito pra mim!, a autora Molly Wigand apresenta às crianças os valores que ajudam a construir boas amizades: lealdade, verdade e honestidade.</td>
           <td>Alugar</td>
+          <td></td>
           <td>Data de empréstimo</td>
           <td>Data de devolução</td>
           <td>
@@ -233,6 +238,7 @@
           <td>6 anos</td>
           <td>Prepare-se para uma viagem inesquecível pelo lugar mais misterioso de todos: o Espaço Sideral! Com este livro, você vai descobrir muitas curiosidades sobre os planetas e o Universo.</td>
           <td>Alugar</td>
+          <td></td>
           <td>Data de empréstimo</td>
           <td>Data de devolução</td>
           <td>
@@ -258,6 +264,7 @@
           <td>8 anos</td>
           <td>Como eu cheguei aqui? Para responder a essa pergunta, o livro traça a sua história desde o Big Bang (teoria que explica a origem do universo) até o seu nascimento.</td>
           <td>Alugar</td>
+          <td></td>
           <td>Data de empréstimo</td>
           <td>Data de devolução</td>
           <td>
@@ -282,6 +289,7 @@
           <td>5 - 9 anos</td>
           <td>Pedro vive preocupado, com medo de errar. Prefere passar os dias sozinho, confinado em sua casa, a aproveitar a companhia dos amigos, porque tem medo de fazer alguma coisa errada nas brincadeiras. A escola, então, é uma preocupação sem fim para ele! Um lugar onde não faltam oportunidades para cometer deslizes. Mas com a ajuda de uma fada, Pedro percebe que viver reprimido o impede de experimentar momentos incríveis.</td>
           <td>Alugado</td>
+          <td>001</td>
           <td>17/04/2024</td>
           <td>24/04/2024</td>
           <td>
@@ -307,6 +315,7 @@
           <td>4 - 8 anos</td>
           <td>Tulu vive entre a floresta e o lavrado. Ele é amigo dos animais, das plantas e de toda a natureza que o cerca. Mas tudo começa a mudar quando as queimadas tomam conta da mata. Nesta história, Tulu vai descobrir que não são só os animais e a floresta que estão correndo perigo...</td>
           <td>Alugado</td>
+          <td>001</td>
           <td>18/04/2024</td>
           <td>25/04/2024</td>
           <td>
@@ -370,16 +379,21 @@
             <input type="text" class="form-control" required>
           </div>
           <div class="form-group">
-            <label>Status</label>
-            <input type="text" class="form-control" required>
+            <label>Status</label><br>
+            <input type="radio" name="form-control" value="alugado"> Alugado <br>
+            <input type="radio" name="form-control" value="alugado"> Disponível
+          </div>
+          <div class="form-group">
+            <label>ID_Aluno</label>
+            <input type="nunber" class="form-control">
           </div>
           <div class="form-group">
             <label>Data de empréstimo</label>
-            <input type="text" class="form-control" required>
+            <input type="date" class="form-control" required>
           </div>
           <div class="form-group">
             <label>Data de devolução</label>
-            <input type="text" class="form-control" required>
+            <input type="date" class="form-control" required>
           </div>
         </div>
         <div class="modal-footer">
@@ -398,45 +412,25 @@
       <form>
         <div class="modal-header">
           <h4 class="modal-title">Editar livro</h4>
-          <button type="button" class="close" data-dismiss="modal" 
-		  aria-hidden="true">&times;</button>
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         </div>
         <div class="modal-body">
           <div class="form-group">
-            <label>Capa do livro</label>
-            <input type="text" class="form-control" required>
+            <label>Status</label><br>
+            <input type="radio" name="form-control" value="alugado"> Alugado <br>
+            <input type="radio" name="form-control" value="alugado"> Disponível
           </div>
           <div class="form-group">
-            <label>Nome</label>
-            <input type="email" class="form-control" required>
-          </div>
-          <div class="form-group">
-            <label>Autor</label>
-            <input type="text" class="form-control" required>
-          </div>
-          <div class="form-group">
-            <label>Editora</label>
-            <input type="text" class="form-control" required>
-          </div>
-          <div class="form-group">
-            <label>Classificação</label>
-            <input type="text" class="form-control" required>
-          </div>
-          <div class="form-group">
-            <label>Sinopse</label>
-            <input type="text" class="form-control" required>
-          </div>
-          <div class="form-group">
-            <label>Status</label>
-            <input type="text" class="form-control" required>
+            <label>ID_Aluno</label>
+            <input type="nunber" class="form-control">
           </div>
           <div class="form-group">
             <label>Data de empréstimo</label>
-            <input type="text" class="form-control" required>
+            <input type="date" class="form-control" required>
           </div>
           <div class="form-group">
             <label>Data de devolução</label>
-            <input type="text" class="form-control" required>
+            <input type="date" class="form-control" required>
           </div>
         </div>
         </div>
