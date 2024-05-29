@@ -9,4 +9,5 @@ Para a realização do projeto da livraria infantil, utilizamos as seguintes lin
 - CSS
 - JavaScript
 - Framework Boostrap
+- PHP
 
