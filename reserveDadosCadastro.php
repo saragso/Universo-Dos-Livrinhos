@@ -13,7 +13,7 @@ $sobrenome=strtoupper($sobrenome);
 $email=strtoupper($email);
 $celular=strtoupper($celular);
 $senha=strtoupper($senha);
-$confirmasenha=strtoupper($confirmasenha)
+$confirmasenha=strtoupper($confirmasenha);
 
 //exibindo o conteúdo das variáveis
 echo "<h1>Estamos no php</h1>";
