@@ -348,7 +348,7 @@
 <div id="addEmployeeModal" class="modal fade">
   <div class="modal-dialog">
     <div class="modal-content">
-      <form>
+      <form action="dadosNovoLivro.php" method="post">
         <div class="modal-header">
           <h4 class="modal-title">Novo livro</h4>
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -356,44 +356,44 @@
         <div class="modal-body">
           <div class="form-group">
             <label>Capa do livro</label>
-            <input type="text" class="form-control" required>
+            <input id="capalivro" type="text" class="form-control" required>
           </div>
           <div class="form-group">
             <label>Nome</label>
-            <input type="email" class="form-control" required>
+            <input id="namelivro" type="email" class="form-control" required>
           </div>
           <div class="form-group">
             <label>Autor</label>
-            <input type="text" class="form-control" required>
+            <input id="autor" type="text" class="form-control" required>
           </div>
           <div class="form-group">
             <label>Editora</label>
-            <input type="text" class="form-control" required>
+            <input id="editora" type="text" class="form-control" required>
           </div>
           <div class="form-group">
             <label>Classificação</label>
-            <input type="text" class="form-control" required>
+            <input id="classificacao" type="text" class="form-control" required>
           </div>
           <div class="form-group">
             <label>Sinopse</label>
-            <input type="text" class="form-control" required>
+            <input id="Sinopse" type="text" class="form-control" required>
           </div>
           <div class="form-group">
             <label>Status</label><br>
-            <input type="radio" name="form-control" value="alugado"> Alugado <br>
-            <input type="radio" name="form-control" value="alugado"> Disponível
+            <input id="status" type="radio" name="form-control" value="alugado"> Alugado <br>
+            <input id="status" type="radio" name="form-control" value="alugado"> Disponível
           </div>
           <div class="form-group">
             <label>ID_Aluno</label>
-            <input type="nunber" class="form-control">
+            <input id="id_aluno" type="nunber" class="form-control">
           </div>
           <div class="form-group">
             <label>Data de empréstimo</label>
-            <input type="date" class="form-control" required>
+            <input id="dataemprestimo" type="date" class="form-control" required>
           </div>
           <div class="form-group">
             <label>Data de devolução</label>
-            <input type="date" class="form-control" required>
+            <input id="datadevolucao" type="date" class="form-control" required>
           </div>
         </div>
         <div class="modal-footer">
