@@ -78,7 +78,11 @@
                 </div>
                 <!-- Formulário de login na parte direita da tela -->
                 <div class="form">
+<<<<<<< HEAD:login.php
                     <form action="" method="POST">
+=======
+                    <form action="reserveDadosLogin.php" method="post">
+>>>>>>> b197ba98aae14bed34cf9df085a7ebcf4c99b1b1:login.html
                         <div class="form-header">
                             <div class="title">
                                 <h1>Login</h1>
