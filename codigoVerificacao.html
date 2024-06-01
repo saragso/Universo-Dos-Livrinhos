@@ -10,6 +10,9 @@
     <!-- Define o ícone da página -->
     <link rel="shortcut icon" href="./Assets/Imagens/logo.png" type="image/x-icon">
     <title>Verificação</title> <!-- Define o título da página -->
+
+    <link rel="stylesheet" href="Assets/CSS/alert.css"><!-- Define Alertas Css da página -->
+    
 </head>
 <body>
     <header> <!-- Início do cabeçalho da página -->
@@ -60,7 +63,7 @@
                             </div>
                         </div>
                         <div class="continue-button">
-                            <button><a href="recadastramentoSenha.html">Verificar</a> </button> <!-- Botão para verificar o código -->
+                            <button onclick="alert"><a href="recadastramentoSenha.html">Verificar</a> </button> <!-- Botão para verificar o código -->
                         </div>
                         
                     </form>
@@ -77,5 +80,16 @@
 
     <!-- Script do Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+   
+    <!-- Script Alerta codigo incorreto-->
+    <script>
+        error.onclick = function alert(){
+        let type = 'error';''
+        let icon = 'fa-solid fa-circle-exclamation';
+        let title = 'Erro!';
+        let text = 'O codigo está incorreto, tente novamente.';
+        createToast(type, icon, title, text);}
+        </script>
+
 </body>
 </html>
