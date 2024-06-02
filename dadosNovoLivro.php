@@ -6,10 +6,6 @@ $autor=$_POST["autor"];
 $editora=$_POST["editora"];
 $classificacao=$_POST["classificacao"];
 $sinopse=$_POST["sinopse"];
-$status=$_POST["status"];
-$idaluno=$_POST["id_aluno"];
-$emprestimo=$_POST["dataemprestimo"];
-$devolucao=$_POST["datadevolucao"];
 
 //tratando as informações recebidas do formulário
 $capalivro=strtoupper($capalivro);
@@ -18,10 +14,6 @@ $autor=strtoupper($autor);
 $editora=strtoupper($editora);
 $classificacao=strtoupper($classificacao);
 $sinopse=strtoupper($sinopse);
-$status=strtoupper($status);
-$idaluno=strtoupper($idaluno);
-$emprestimo=strtoupper($emprestimo);
-$devolucao=strtoupper($devolucao);
 
 //exibindo o conteúdo das variáveis
 echo "<h1>Estamos no php</h1>";
