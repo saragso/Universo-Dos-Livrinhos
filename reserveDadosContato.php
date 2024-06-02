@@ -1,28 +1,36 @@
 <?php
+// Conectar ao banco de dados
+$servername = "seu_servidor";
+$username = "seu_usuario";
+$password = "sua_senha";
+$dbname = "seu_banco_de_dados";
 
-$nome=$_POST["firstname"];
-$sobrenome=$_POST["lastname"];
-$email=$_POST["email"];
-$celular=$_POST["number"];
-$mensagem=$_POST["mensagem-texto"];
+// Criar conexão
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-//tratando as informações recebidas do formulário
-$nome=strtoupper($nome);
-$sobrenome=strtoupper($sobrenome);
-$email=strtoupper($email);
-$celular=strtoupper($celular);
-$mensagem=strtoupper($mensagem);
+// Verificar conexão
+if ($conn->connect_error) {
+    die("Falha na conexão: " . $conn->connect_error);
+}
 
-//exibindo o conteúdo das variáveis
-echo "<h1>Estamos no php</h1>";
-echo "Nome: " .$nome; 
-echo "<br><br>";
-echo "Sobrenome: " .$sobrenome; 
-echo "<br><br>";
-echo "Email: " .$email; 
-echo "<br><br>";
-echo "Celular: " .$celular; 
-echo "<br><br>";
-echo "Mensagem salva! Entraremos em contato em breve";
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Receber os dados do formulário
+    $nome = strtoupper($_POST["firstname"]);
+    $sobrenome = strtoupper($_POST["lastname"]);
+    $email = strtoupper($_POST["email"]);
+    $celular = strtoupper($_POST["number"]);
+    $mensagem = strtoupper($_POST["mensagem-texto"]);
 
+    // Inserir os dados no banco de dados (substitua 'sua_tabela' pelo nome da sua tabela)
+    $sql_insert = "INSERT INTO sua_tabela (nome, sobrenome, email, celular, mensagem) VALUES ('$nome', '$sobrenome', '$email', '$celular', '$mensagem')";
+    
+    if ($conn->query($sql_insert) === TRUE) {
+        echo "Mensagem salva! Entraremos em contato em breve";
+    } else {
+        echo "Erro ao salvar mensagem: " . $conn->error;
+    }
+}
+
+// Fechar conexão com o banco de dados
+$conn->close();
 ?>

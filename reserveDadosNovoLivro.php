@@ -1,46 +1,37 @@
 <?php
+// Conectar ao banco de dados
+$servername = "seu_servidor";
+$username = "seu_usuario";
+$password = "sua_senha";
+$dbname = "seu_banco_de_dados";
 
-$capalivro=$_POST["capalivro"];
-$nomelivro=$_POST["namelivro"];
-$autor=$_POST["autor"];
-$editora=$_POST["editora"];
-$classificacao=$_POST["classificacao"];
-$sinopse=$_POST["sinopse"];
-$status=$_POST["status"];
-$idaluno=$_POST["id_aluno"];
-$emprestimo=$_POST["dataemprestimo"];
-$devolucao=$_POST["datadevolucao"];
+// Criar conexão
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-//tratando as informações recebidas do formulário
-$capalivro=strtoupper($capalivro);
-$nomelivro=strtoupper($nomelivro);
-$autor=strtoupper($autor);
-$editora=strtoupper($editora);
-$classificacao=strtoupper($classificacao);
-$sinopse=strtoupper($sinopse);
-$status=strtoupper($status);
-$idaluno=strtoupper($idaluno);
-$emprestimo=strtoupper($emprestimo);
-$devolucao=strtoupper($devolucao);
+// Verificar conexão
+if ($conn->connect_error) {
+    die("Falha na conexão: " . $conn->connect_error);
+}
 
-//exibindo o conteúdo das variáveis
-echo "<h1>Estamos no php</h1>";
-echo "Nome do livro: " .$nomelivro; 
-echo "<br><br>";
-echo "Autor: " .$autor; 
-echo "<br><br>";
-echo "Editora: " .$editora; 
-echo "<br><br>";
-echo "Classificação: " .$classificacao; 
-echo "Sinopse: " .$sinopse; 
-echo "<br><br>";
-echo "Status: " .$status; 
-echo "<br><br>";
-echo "ID do aluno: " .$idaluno; 
-echo "<br><br>";
-echo "Data de empréstimo: " .$emprestimo; 
-echo "<br><br>";
-echo "Data de devolução: " .$devolucao; 
-echo "<br><br>";
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Receber os dados do formulário
+    $capalivro = strtoupper($_POST["capalivro"]);
+    $nomelivro = strtoupper($_POST["namelivro"]);
+    $autor = strtoupper($_POST["autor"]);
+    $editora = strtoupper($_POST["editora"]);
+    $classificacao = strtoupper($_POST["classificacao"]);
+    $sinopse = strtoupper($_POST["sinopse"]);
 
+    // Inserir os dados no banco de dados (substitua 'sua_tabela' pelo nome da sua tabela)
+    $sql_insert = "INSERT INTO sua_tabela (capalivro, nomelivro, autor, editora, classificacao, sinopse) VALUES ('$capalivro', '$nomelivro', '$autor', '$editora', '$classificacao', '$sinopse')";
+    
+    if ($conn->query($sql_insert) === TRUE) {
+        echo "Livro cadastrado com sucesso!";
+    } else {
+        echo "Erro ao cadastrar livro: " . $conn->error;
+    }
+}
+
+// Fechar conexão com o banco de dados
+$conn->close();
 ?>
