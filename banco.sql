@@ -25,8 +25,8 @@ VALUES
 -- Criação da tabela `livros`
 CREATE TABLE livros (
     id_livro INT AUTO_INCREMENT PRIMARY KEY,
-    capa VARCHAR(255) NOT NULL,
-    nome VARCHAR(255) NOT NULL,
+    capalivro VARCHAR(255) NOT NULL,
+    nomelivro VARCHAR(255) NOT NULL,
     autor VARCHAR(255) NOT NULL,
     editora VARCHAR(255) NOT NULL,
     classificacao VARCHAR(50),
@@ -34,7 +34,7 @@ CREATE TABLE livros (
 );
 
 -- Inserção de dados na tabela `livros`
-INSERT INTO livros (capa, nome, autor, editora, classificacao, sinopse)
+INSERT INTO livros (capalivro, nomelivro, autor, editora, classificacao, sinopse)
 VALUES 
 ('o monstro que adorava ler.png', 'O monstro que adorava ler', 'Lili Chartrand', 'SM', '4 - 7 anos', 'À beira de uma floresta encantada, um monstro assustador encontra um estranho objeto que ele cheira e lambe. Não tem gosto de nada! Com raiva, joga-o no chão. No entanto, esse objeto admirável vai mudar completamente a sua vida e seu humor. Uma história engraçada, surpreendente e tocante sobre a magia dos livros e o prazer da leitura'),
 ('perigoso.png', 'Perigoso!', 'Tim Warnes', 'Ciranda Cultural', '4 anos', 'Bob é uma toupeira que adora etiquetar as coisas. Um dia, ele encontra uma coisa muito estranha. Uma coisa escamosa. Uma coisa escamosa com dentes pontudos. Ahhh! Cuidado, Bob!', 'disponivel'),
