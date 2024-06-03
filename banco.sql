@@ -11,7 +11,7 @@ CREATE TABLE usuarios (
     senha VARCHAR(255) NOT NULL,
     foto_perfil VARCHAR(255),
     telefone_contato VARCHAR(20)
-);
+); 
 
 -- Inserção de dados na tabela `usuarios`
 INSERT INTO usuarios (nome_aluno, sobrenome_aluno, email, senha, telefone_contato)
