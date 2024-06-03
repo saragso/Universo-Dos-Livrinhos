@@ -77,3 +77,17 @@ CREATE TABLE admins (
 INSERT INTO admins (nome, email, senha)
 VALUES 
 ('Letícia', 'leticiamendes@gmail.com', 'senha_criptografada');
+
+CREATE TABLE contato (
+    nome_aluno VARCHAR(255) NOT NULL,
+    sobrenome_aluno VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    telefone_contato VARCHAR(20),
+    mensagem VARCHAR(1000) NOT NULL
+);
+
+-- Inserção de dados na tabela `usuarios`
+INSERT INTO contato (nome_aluno, sobrenome_aluno, email, telefone_contato, mensagem)
+VALUES 
+('Lara', 'da Silva', 'joaosilva@gmail.com', '11990909090', 'Gostaria de mais informações sobre a biblioteca')
+
