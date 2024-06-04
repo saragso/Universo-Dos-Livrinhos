@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo '<div class="alert alert-danger" role="alert">Esse e-mail já está cadastrado.</div>';
     } else {
         // Inserir dados na tabela
-        $sql_insert = "INSERT INTO usuarios (nome_aluno, sobrenome_aluno, email) VALUES ('$nome_aluno', '$sobrenome_aluno', '$email')";
+        $sql_insert = "UPDATE usuarios (nome_aluno, sobrenome_aluno, email) VALUES ('$nome_aluno', '$sobrenome_aluno', '$email')";
         
         if ($conexao->query($sql_insert) === TRUE) {
             echo '<div class="alert alert-success" role="alert">Registro inserido com sucesso!</div>';
