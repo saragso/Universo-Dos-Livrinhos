@@ -34,6 +34,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
             if ($conexao->query($sql_insert) === TRUE) {
                 echo '<div class="alert alert-success" role="alert">Cadastro realizado com sucesso!</div>';
+                header("Location: inicioUser.html");
+                exit();
             } else {
                 echo '<div class="alert alert-danger" role="alert">Erro ao cadastrar: ' . $conexao->error . '</div>';
             }
