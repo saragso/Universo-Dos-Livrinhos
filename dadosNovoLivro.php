@@ -10,7 +10,7 @@ if ($conexao->connect_error) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Receber os dados do formulário
     $capalivro = $_POST["capalivro"];
-    $nomelivro = $_POST["nomelivro"];
+    $nomelivro = $_POST["namelivro"];
     $autor = $_POST["autor"];
     $editora = $_POST["editora"];
     $classificacao = $_POST["classificacao"];
