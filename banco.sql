@@ -79,10 +79,11 @@ VALUES
 ('Letícia', 'leticiamendes@gmail.com', 'senha_criptografada');
 
 CREATE TABLE contato (
+    id_nota INT AUTO_INCREMENT PRIMARY KEY,
     nome_aluno VARCHAR(255) NOT NULL,
     sobrenome_aluno VARCHAR(255) NOT NULL,
-    email VARCHAR(255) NOT NULL UNIQUE,
-    telefone_contato VARCHAR(20),
+    email VARCHAR(255) NOT NULL,
+    telefone_contato VARCHAR(20 NOT NULL
     mensagem VARCHAR(1000) NOT NULL
 );
 
