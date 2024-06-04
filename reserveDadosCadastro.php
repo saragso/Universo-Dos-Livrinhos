@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // As senhas coincidem e o e-mail não está cadastrado, então podemos prosseguir com o cadastro
 
             // Inserir os dados no banco de dados (substitua 'sua_tabela' pelo nome da sua tabela)
-            $sql_insert = "INSERT INTO usuarios (nome_aluno, sobrenome_aluno, email, celular, senha) VALUES ('$nome_aluno', '$sobrenome_aluno', '$email', '$celular', '$senha')";
+            $sql_insert = "INSERT INTO usuarios (nome_aluno, sobrenome_aluno, email, telefone_contato, senha) VALUES ('$nome_aluno', '$sobrenome_aluno', '$email', '$telefone_contato', '$senha')";
             
             if ($conexao->query($sql_insert) === TRUE) {
                 echo '<div class="alert alert-success" role="alert">Cadastro realizado com sucesso!</div>';
