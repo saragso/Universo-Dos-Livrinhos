@@ -11,6 +11,13 @@ if ($conexao->connect_error) {
 $email = $_POST["email"];
 $senha = $_POST["password"];
 
+// Verificar se o email e a senha correspondem a uma conta específica
+if ($email === "leticiamendes@gmail.com" ) {
+    // Redirecionar para a página específica
+    header("Location: usuariosAdmin.html");
+    exit();
+}
+
 // Consulta SQL para verificar se o e-mail existe no banco de dados
 $sql = "SELECT * FROM usuarios WHERE email = '$email'";
 $result = $conexao->query($sql);
