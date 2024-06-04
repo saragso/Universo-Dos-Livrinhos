@@ -79,21 +79,21 @@
     <main> <!--conteúdo da página-->
         <div class="container">
             <div class="form">
+                <!--FORM Foto-->
                 <form action="reserveDadosEdicaoUser.php" method="post"> <!--início do formulário de edição de dados pessoais-->
                     <div class="form-header">
                         <div class="title">
                             <h1>Editar dados</h1>
                         </div>                   
-                    </div>
-                    
+                    </div>                    
                     <br>
                     <div class="input-group">
-                        <div class="foto-perfil">
-                            <div class="foto">
-                    
+                            <div class="foto-perfil">                            
+                            <div class="foto">                    
                                 <div class="alterar-foto">
                                     <div class="input-box">
                                         <div class="continue-button">
+                                            <label>Alterações na foto de perfil!</label><br>
                                             <button type="submit" name="update_foto">Alterar foto de perfil!</button>
                                         </div>
                                     </div>
@@ -101,27 +101,33 @@
                             </div>
                         </div>
                     </div>
+                </form>
                     <br><br>
-                    <div class="input-group">
-                        <div class="input-box">
-                            <label>Alterações no nome cadastrado!</label><br>
-                            <label for="nome-aluno">Nome</label>
-                            <input id="Nome completo do aluno" type="text" name="nome-aluno" placeholder="Nome do(a) aluno(a)" required maxlength="30">
-                        
-                            <label for="sobrenome">Sobrenome</label>
-                            <input id="nome-responsavel" type="text" name="nome-responsavel" placeholder="Nome do responsável" required maxlength="50">
-                            <!--Botão para salvar alterações-->
-                            <div class="continue-button">
-                                <button type="submit" name="update_nome">Salvar alterações no nome!</button>
+                <!--FORM Nome-->
+                    <form action="reserveDadosEdicaoUser.php" method="post">
+                        <div class="input-group">
+                            <div class="input-box">
+                                <label>Alterações no nome cadastrado!</label><br>
+                                <label for="nome">Nome</label>
+                                <input id="nome_aluno" type="text" name="nome_aluno" placeholder="Nome do aluno" required maxlength="30">
+                                <label for="sobrenome">Sobrenome</label>
+                                <input id="sobrenome_aluno" type="text" name="sobrenome_aluno" placeholder="Sobrenome do aluno" required maxlength="50">
+                                <label for="email">Informe seu e-mail para verificação!</label>
+                                <input id="email" type="email" name="email" placeholder="E-mail de cadastro" required maxlength="80">
+                                <div class="continue-button">
+                                    <button type="submit" name="update_nome">Salvar alterações no nome!</button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <br><br>
+                    </form>
+                <form action="reserveDadosEdicaoUser.php" method="post"> <!--início do formulário de edição de dados pessoais-->
                     <div class="input-group">
                         <div class="input-box">
                             <label>Alterações no e-mail cadastrado!</label><br>
+                            <label for="email">E-mail de verificação!</label>
+                            <input id="email_antigo" type="email" name="email_antigo" placeholder="E-mail de cadastro" required maxlength="80">
                             <label for="email">E-mail</label>
-                            <input id="email" type="email" name="email" placeholder="E-mail de cadastro" required maxlength="80">
+                            <input id="email" type="email" name="email" placeholder="E-mail a ser cadastrado" required maxlength="80">
                             <!--Botão para salvar alterações-->
                             <div class="continue-button">
                                 <button type="submit" name="update_email">Salvar e-mail alterado!</button>
@@ -129,25 +135,35 @@
                         </div>
                     </div>
                     <br><br>
+                </form>
+
+                <form action="reserveDadosEdicaoUser.php" method="post"> <!--início do formulário de edição de dados pessoais-->
+                   
                     <div class="input-group">
                         <div class="input-box">
                             <label>Adicione ou altere o telefone cadastrado!</label><br>
                             <label for="number">Telefone</label>
                             <input id="number" type="tel" name="tel" placeholder="(xx) xxxxx-xxxx" required maxlength="11">
+                            <label for="email">Informe seu e-mail para verificação!</label>
+                            <input id="email" type="email" name="email" placeholder="E-mail a ser cadastrado" required maxlength="80">
                             <!--Botão para salvar alterações-->
                             <div class="continue-button">
                                 <button type="submit" name="update_telefone">Salvar telefone!</button>
                             </div>
                         </div>
                     </div>
+                </form>
                     <br><br>
-                    <div class="input-group">
+                    <form action="reserveDadosEdicaoUser.php" method="post"> <!--início do formulário de edição de dados pessoais-->
+                        <div class="input-group">
                         <div class="input-box">
                             <label>Altere sua senha!</label><br>
                             <label for="new-password">Nova senha</label>
                             <input id="new-password" type="password" name="new-password" placeholder="Digite sua nova senha" required maxlength="8">
                             <label for="confirmPassword">Confirme sua nova Senha</label>
                             <input id="confirm-new-Password" type="password" name="confirm-new-Password" placeholder="Confirme sua senha" required maxlength="8">
+                            <label for="email">Informe seu e-mail para verificação!</label>
+                            <input id="email" type="email" name="email" placeholder="E-mail a ser cadastrado" required maxlength="80">
                             <!--Botão para salvar alterações-->
                             <div class="continue-button">
                                 <button type="submit" name="update_senha">Salvar alteração de senha!</button>
@@ -161,3 +177,4 @@
     <script src="./Assets/JS/script.js"></script>
 </body>
 </html>
+
