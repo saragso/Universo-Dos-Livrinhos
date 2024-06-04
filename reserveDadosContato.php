@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sobrenome_aluno = strtoupper($_POST["lastname"]);
     $email = strtoupper($_POST["email"]);
     $telefone_contato = strtoupper($_POST["number"]);
-    $mensagem = strtoupper($_POST["mensagem-texto"]);
+    $mensagem = strtoupper($_POST["mensagem"]);
 
     // Inserir os dados no banco de dados (substitua 'sua_tabela' pelo nome da sua tabela)
     $sql_insert = "INSERT INTO contato (nome_aluno, sobrenome_aluno, email, telefone_contato, mensagem) VALUES ('$nome_aluno', '$sobrenome_aluno', '$email', '$telefone_contato', '$mensagem')";
