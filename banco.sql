@@ -83,7 +83,7 @@ CREATE TABLE contato (
     nome_aluno VARCHAR(255) NOT NULL,
     sobrenome_aluno VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL,
-    telefone_contato VARCHAR(20 NOT NULL
+    telefone_contato VARCHAR(20) NOT NULL,
     mensagem VARCHAR(1000) NOT NULL
 );
 
