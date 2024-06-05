@@ -18,9 +18,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql_update = "UPDATE emprestimos SET status='$status', data_emprestimo='$data_emprestimo', data_devolucao='$data_devolucao' WHERE id_emprestimo='$id_usuario'";
     
     if ($conexao->query($sql_update) === TRUE) {
-        echo '<div class="alert alert-success" role="alert">Registro atualizado com sucesso!</div>';
+        //echo '<div class="alert alert-success" role="alert">Registro atualizado com sucesso!</div>';
+        //INSERIR UM ALERT AQUI - REGISTRO ATUALIZADO COM SUCESSO
+        header("Location: catalogoLivro.html");
+        exit();
     } else {
-        echo '<div class="alert alert-danger" role="alert">Erro ao atualizar registro: ' . $conexao->error . '</div>';
+        //echo '<div class="alert alert-danger" role="alert">Erro ao atualizar registro: ' . $conexao->error . '</div>';
+        //INSERIR UM ALERT AQUI - ERRO AO ATUALIZAR REGISTRO
+        header("Location: catalogoLivro.html");
+        exit();
     }
 }
 
