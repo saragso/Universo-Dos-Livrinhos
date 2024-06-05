@@ -25,7 +25,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         // Verificar se as senhas são iguais
         if ($senha != $confirmasenha) {
-            echo '<div class="alert alert-danger" role="alert">As senhas não são iguais.</div>';
+            //echo '<div class="alert alert-danger" role="alert">As senhas não são iguais.</div>';
+            //INSERIR UM ALERT DE SENHAS IGUAIS AQUI
+            header("Location: cadastreSe.html");
+            exit();
         } else {
             // As senhas coincidem e o e-mail não está cadastrado, então podemos prosseguir com o cadastro
 
@@ -37,7 +40,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 header("Location: inicioUser.html");
                 exit();
             } else {
-                echo '<div class="alert alert-danger" role="alert">Erro ao cadastrar: ' . $conexao->error . '</div>';
+                //echo '<div class="alert alert-danger" role="alert">Erro ao cadastrar: ' . $conexao->error . '</div>';
+                //INSERIR UM ALERT DE "ERRO AO CADASTRAR" AQUI
+                header("Location: cadastreSe.html");
+                exit();
             }
         }
     }
