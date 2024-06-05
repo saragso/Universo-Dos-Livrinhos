@@ -151,7 +151,9 @@
         <div class="modal-body">
           <div class="form-group">
             <label>Capa do livro</label>
-            <input id="capalivro" name="capalivro" type="text" class="form-control" required>
+            <form action="capa.php" method="post" enctype="multipart/form-data">
+              <input type="file" name="capalivro" accept="image/*" class="form-control" required>
+            </form>
           </div>
           <div class="form-group">
             <label>Nome</label>
@@ -163,7 +165,7 @@
           </div>
           <div class="form-group">
             <label>Editora</label>
-            <input id="editora" name"editora" type="text" class="form-control" required>
+            <input id="editora" name="editora" type="text" class="form-control" required>
           </div>
           <div class="form-group">
             <label>Classificação</label>

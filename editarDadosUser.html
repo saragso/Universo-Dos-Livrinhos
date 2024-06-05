@@ -87,18 +87,18 @@
                         </div>                   
                     </div>                    
                     <br>
-                    <div class="input-group">
-                            <div class="foto-perfil">                            
-                            <div class="foto">                    
-                                <div class="alterar-foto">
-                                    <div class="input-box">
-                                        <div class="continue-button">
-                                            <label>Alterações na foto de perfil!</label><br>
-                                            <button type="submit" name="update_foto">Alterar foto de perfil!</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                    <div class="input-group">                       
+                        <div class="input-box">
+                            <label>Alterações na foto de perfil!</label><br>
+                            <form action="upload_foto.php" method="post" enctype="multipart/form-data">
+                                <input type="file" name="foto_perfil" accept="image/*" required>  
+                                <label for="email">Informe seu e-mail para verificação!</label>
+                                <input id="email" type="email" name="email" placeholder="E-mail a ser cadastrado" required maxlength="80">
+                                                                          
+                            </form>
+                            <div class="continue-button">
+                                <button type="submit" name="update_foto">Alterar foto de perfil!</button>
+                            </div>                                   
                         </div>
                     </div>
                 </form>
@@ -136,7 +136,6 @@
                     </div>
                     <br><br>
                 </form>
-
                 <form action="reserveDadosEdicaoUser.php" method="post"> <!--início do formulário de edição de dados pessoais-->
                    
                     <div class="input-group">
