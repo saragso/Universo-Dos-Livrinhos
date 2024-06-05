@@ -218,5 +218,38 @@ CREATE TABLE contato (
 -- Inserção de dados na tabela `usuarios`
 INSERT INTO contato (nome_aluno, sobrenome_aluno, email, telefone_contato, mensagem)
 VALUES 
-('Lara', 'da Silva', 'joaosilva@gmail.com', '11990909090', 'Gostaria de mais informações sobre a biblioteca')
+('Lara', 'da Silva', 'joaosilva@gmail.com', '11990909090', 'Gostaria de mais informações sobre a biblioteca'),
+('Felipe', 'Vieira', 'solangevieira@gmail.com', '11970706060', 'Qual o horário de funcionamento da livraria?'),
+('Luara', 'Mendes', 'joicemendes123@gmail.com', '11925302890', 'Como faço para pegar emprestado um livro?'),
+('André', 'Almeida', 'leandroalmeida@gmail.com', '11956783215', 'Quais os livros disponíveis para crianças de 5 anos?'),
+('Luna', 'Gouveia', 'anapaula15@gmail.com', '11989561235', 'Quando devo devolver o livro que peguei emprestado?'),
+('Carlos', 'Pereira', 'fernandopereira@gmail.com', '(31) 93456-7890', 'Vocês têm livros em braille para crianças?'),
+('Ana', 'Silva', 'mariasilva@gmail.com', '(11) 91234-5678', 'Gostaria de saber se vocês têm livros sobre animais para meu filho'),
+('Julia', 'Lima', 'ricardo_lima@gmail.com', '(11) 90123-4567', 'Qual o valor da mensalidade para ser sócio da biblioteca?'),
+('Olivia', 'Gomes', 'marcos.gomes@gmail.com', '(51) 94567-8901', 'Posso renovar o empréstimo do livro por mais tempo?'),
+('Rafael', 'Araujo', 'isabel.araujo@gmail.com', '(81) 97890-1234', 'Vocês oferecem atividades extracurriculares para crianças?'),
+('Eduardo', 'Oliveira', 'patriciaoliveira@gmail.com', '(51) 95678-9012', 'Onde posso encontrar livros de pintura para crianças?'),
+('Wendy', 'Freitas', 'renatofreitas@gmail.com', '(41) 92345-6789', 'Como faço para doar livros para a biblioteca?'),
+('Sofia', 'Carvalho', 'brunocarvalho@gmail.com', '(91) 98901-2345', 'Qual a idade recomendada para o livro "O Pequeno Príncipe"?'),
+('Gabriel', 'Rodrigues', 'carla.rodrigues@gmail.com', '(71) 97890-1234', 'Vocês têm livros interativos para crianças?'),
+('Nicolas', 'Fernandes', 'elisa.fernandes@gmail.com', '(41) 93456-7890', 'Gostaria de saber sobre o programa de leitura para crianças'),
+('Lucas', 'Melo', 'ana.melo@gmail.com', '(21) 91234-5678', 'Quais os livros mais populares entre as crianças?'),
+('Vanessa', 'Viana', 'mariana.viana@gmail.com', '(91) 95678-9012', 'Como faço para me tornar voluntário na biblioteca?'),
+('Tiago', 'Santos', 'juliana_santos@gmail.com', '(11) 99012-3456', 'Quais os eventos culturais que a biblioteca promove?'),
+('Victor', 'Correia', 'gabriela_correia@gmail.com', '(31) 91234-5678', 'Onde encontro livros educativos para meu filho de 3 anos?'),
+('Sabrina', 'Barros', 'carlosbarros@gmail.com', '(71) 93456-7890', 'Vocês têm livros sobre reciclagem para crianças?'),
+('Pedro', 'Lopes', 'aline.lopes@gmail.com', '(61) 95678-9012', 'Qual a política de troca de livros danificados?'),
+('Marina', 'Lacerda', 'isabel_lacerda@gmail.com', '(21) 98901-2345', 'Vocês oferecem descontos para compras em grande quantidade?'),
+('Yasmin', 'Dias', 'gustavo_dias@gmail.com', '(61) 94567-8901', 'Como faço para agendar uma visita à biblioteca com minha turma?'),
+('Isabela', 'Torres', 'patricia_torres@gmail.com', '(71) 94567-8901', 'Vocês têm livros sobre contos de fadas para crianças?'),
+('Keila', 'Mendes', 'fabio_mendes@gmail.com', '(71) 96789-0123', 'Como posso ajudar a promover a leitura entre as crianças da comunidade?'),
+('Helena', 'Martins', 'lucas_martins@gmail.com', '(81) 98901-2345', 'Quais as medidas de segurança adotadas na biblioteca?'),
+('William', 'Peixoto', 'rodrigo.peixoto@gmail.com', '(11) 96789-0123', 'Vocês têm livros sobre ciências para crianças?'),
+('João', 'Moreira', 'bruno.moreira@gmail.com', '(81) 95678-9012', 'Gostaria de saber se vocês têm livros sobre astronomia para crianças'),
+('Daniel', 'Figueiredo', 'fernanda.figueiredo@gmail.com', '(21) 99012-3456', 'Posso fazer doações de livros usados para a biblioteca?'),
+('Bruno', 'Souza', 'joao.souza@gmail.com', '(21) 92345-6789', 'Qual o prazo para devolver um livro emprestado?'),
+('Thiago', 'Moura', 'elisa.moura@gmail.com', '(81) 94567-8901', 'Quais as formas de pagamento aceitas na biblioteca?'),
+('Leonardo', 'Nogueira', 'fabio.nogueira@gmail.com', '(11) 97890-1234', 'Quais os cuidados necessários para preservar os livros?'),
+('Nathalia', 'Tavares', 'ricardo.tavares@gmail.com', '(31) 99012-3456', 'Gostaria de saber sobre os eventos literários realizados pela biblioteca');
+
 
