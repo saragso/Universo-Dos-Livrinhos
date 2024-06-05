@@ -19,9 +19,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql_insert = "INSERT INTO contato (nome_aluno, sobrenome_aluno, email, telefone_contato, mensagem) VALUES ('$nome_aluno', '$sobrenome_aluno', '$email', '$telefone_contato', '$mensagem')";
     
     if ($conexao->query($sql_insert) === TRUE) {
-        echo "Mensagem salva! Entraremos em contato em breve";
+        //echo "Mensagem salva! Entraremos em contato em breve";
+        //INSERIR ALERT AQUI - MENSAGEM SALVA! ENTRAREMOS EM CONTATO EM BREVE
+        header("Location: entreEmContato.html");
+        exit();
     } else {
-        echo "Erro ao salvar mensagem: " . $conexao->error;
+        //echo "Erro ao salvar mensagem: " . $conexao->error;
+        //INSERIR ALERT AQUI - ERRO AO SALVAR MENSAGEM
+        header("Location: entreEmContato.html");
+        exit();
     }
 }
 
