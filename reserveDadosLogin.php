@@ -30,12 +30,18 @@ if ($result->num_rows > 0) {
         header("Location: inicioUser.html");
         exit();
     } else {
-        // Senha incorreta
-        $login_error = "Senha incorreta.";
+        // Senha incorreta - permanece na mesma página
+        //INSERIR UM ALERT AQUI
+        //$login_error = "Senha incorreta."; //alert
+        header("Location: login.html");
+        exit();
     }
 } else {
-    // E-mail não encontrado
-    $login_error = "E-mail não encontrado.";
+    // E-mail não encontrado - permanece na  mesma página
+    //INSERIR UM ALERT AQUI
+    //$login_error = "E-mail não encontrado.";
+    header("Location: login.html");
+    exit();
 }
 
 if (!empty($login_error)) {

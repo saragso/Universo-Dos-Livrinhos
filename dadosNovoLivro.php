@@ -37,9 +37,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $sql_insert = "INSERT INTO livros (capalivro, nomelivro, autor, editora, classificacao, sinopse) VALUES ('$capalivro', '$nomelivro', '$autor', '$editora', '$classificacao', '$sinopse')";
     
                     if ($conexao->query($sql_insert) === TRUE) {
-                         echo '<div class="alert alert-success" role="alert">Livro cadastrado com sucesso!</div>';
+                         echo '<div class="alert alert-success" role="alert">Livro cadastrado com sucesso!</div>'; //ALERT
                      } else {
-                         echo '<div class="alert alert-danger" role="alert">Erro ao cadastrar livro: ' . $conexao->error . '</div>';
+                         echo '<div class="alert alert-danger" role="alert">Erro ao cadastrar livro: ' . $conexao->error . '</div>'; //ALERT
                      }
               }
              }
