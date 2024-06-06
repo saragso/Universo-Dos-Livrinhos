@@ -28,15 +28,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $sql_update_foto = "UPDATE usuarios SET foto_perfil='$caminhoArquivo' WHERE email='$email'";
     
                 if ($conexao->query($sql_update_foto) === TRUE) {
-                    echo '<div class="alert alert-success" role="alert">Foto de perfil atualizada com sucesso!</div>';
+                    //echo '<div class="alert alert-success" role="alert">Foto de perfil atualizada com sucesso!</div>';
+                    //INSERIR UM ALERT AQUI - FOTO DE PERFIL ATUALIZADA COM SUCESSO
+                    header("Location: editarDadosUser.html");
+                    exit();
                 } else {
-                    echo '<div class="alert alert-danger" role="alert">Erro ao atualizar foto de perfil: ' . $conexao->error . '</div>';
+                    //echo '<div class="alert alert-danger" role="alert">Erro ao atualizar foto de perfil: ' . $conexao->error . '</div>';
+                    //INSERIR UM ALERT AQUI - ERRO AO ATUALIZAR FOTO DE PERFIL
+                    header("Location: editarDadosUser.html");
+                    exit();
                 }
             } else {
-                echo '<div class="alert alert-danger" role="alert">Erro ao mover o arquivo enviado.</div>';
+                //echo '<div class="alert alert-danger" role="alert">Erro ao mover o arquivo enviado.</div>';
+                //INSERIR UM ALERT AQUI - ERRO AO MOVER O ARQUIVO ENVIADO
+                header("Location: editarDadosUser.html");
+                exit();
             }
         } else {
-            echo '<div class="alert alert-danger" role="alert">Nenhum arquivo foi enviado ou ocorreu um erro no envio.</div>';
+            //echo '<div class="alert alert-danger" role="alert">Nenhum arquivo foi enviado ou ocorreu um erro no envio.</div>';
+            //INSERIR UM ALERT AQUI - NENHUM ARQUIVO FOI ENVIADO OU OCORREU UM ERRO NO ENVIO
+            header("Location: editarDadosUser.html");
+            exit();
         }
     } elseif (isset($_POST['update_nome'])) {
         $nome_aluno = strtoupper($_POST["nome_aluno"]);
@@ -46,9 +58,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sql_update_nome = "UPDATE usuarios SET nome_aluno='$nome_aluno', sobrenome_aluno='$sobrenome_aluno' WHERE email='$email'";
 
         if ($conexao->query($sql_update_nome) === TRUE) {
-            echo '<div class="alert alert-success" role="alert">Nome atualizado com sucesso!</div>';
+            //echo '<div class="alert alert-success" role="alert">Nome atualizado com sucesso!</div>';
+            //INSERIR UM ALERT AQUI - NOME ATUALIZADO COM SUCESSO
+            header("Location: editarDadosUser.html");
+            exit();
         } else {
-            echo '<div class="alert alert-danger" role="alert">Erro ao atualizar nome: ' . $conexao->error . '</div>';
+            //echo '<div class="alert alert-danger" role="alert">Erro ao atualizar nome: ' . $conexao->error . '</div>';
+            //INSERIR UM ALERT AQUI - ERRO AO ATUALIZAR NOME
+            header("Location: editarDadosUser.html");
+            exit();
         }
     } elseif (isset($_POST['update_email'])) {
         $email = strtoupper($_POST["email"]);
@@ -57,9 +75,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sql_update_email = "UPDATE usuarios SET email='$email' WHERE email='$email_antigo'";
 
         if ($conexao->query($sql_update_email) === TRUE) {
-            echo '<div class="alert alert-success" role="alert">E-mail atualizado com sucesso!</div>';
+            //echo '<div class="alert alert-success" role="alert">E-mail atualizado com sucesso!</div>';
+            //INSERIR UM ALERT AQUI - EMAIL ATUALIZADO COM SUCESSO
+            header("Location: editarDadosUser.html");
+            exit();
         } else {
-            echo '<div class="alert alert-danger" role="alert">Erro ao atualizar e-mail: ' . $conexao->error . '</div>';
+            //echo '<div class="alert alert-danger" role="alert">Erro ao atualizar e-mail: ' . $conexao->error . '</div>';
+            //INSERIR UM ALERT AQUI - ERRO AO ATUALIZAR EMAIL
+            header("Location: editarDadosUser.html");
+            exit();
         }
 
     } elseif (isset($_POST['update_telefone'])) {
@@ -69,9 +93,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sql_update_telefone = "UPDATE usuarios SET telefone_contato='$telefone_contato' WHERE email='$email'";
 
         if ($conexao->query($sql_update_telefone) === TRUE) {
-            echo '<div class="alert alert-success" role="alert">Telefone atualizado com sucesso!</div>';
+            //echo '<div class="alert alert-success" role="alert">Telefone atualizado com sucesso!</div>';
+            //INSERIR UM ALERT AQUI - TELEFONE ATUALIZADO COM SUCESSO
+            header("Location: editarDadosUser.html");
+            exit();
         } else {
-            echo '<div class="alert alert-danger" role="alert">Erro ao atualizar telefone: ' . $conexao->error . '</div>';
+            //echo '<div class="alert alert-danger" role="alert">Erro ao atualizar telefone: ' . $conexao->error . '</div>';
+            //INSERIR UM ALERT AQUI - ERRO AO ATUALIZAR TELEFONE
+            header("Location: editarDadosUser.html");
+            exit();
         }
 
     } elseif (isset($_POST['update_senha'])) {
@@ -82,9 +112,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $sql_update_senha = "UPDATE usuarios SET senha='$senha' WHERE email='$email'";
 
             if ($conexao->query($sql_update_senha) === TRUE) {
-                echo '<div class="alert alert-success" role="alert">Senha atualizada com sucesso!</div>';
+                //echo '<div class="alert alert-success" role="alert">Senha atualizada com sucesso!</div>';
+                //INSERIR UM ALERT AQUI - SENHA ATUALIZADA COM SUCESSO
+                header("Location: editarDadosUser.html");
+                exit();
             } else {
-                echo '<div class="alert alert-danger" role="alert">Erro ao atualizar senha: ' . $conexao->error . '</div>';
+                //echo '<div class="alert alert-danger" role="alert">Erro ao atualizar senha: ' . $conexao->error . '</div>';
+                //INSERIR UM ALERT AQUI - ERRO AO ATUALIZAR SENHA
+                header("Location: editarDadosUser.html");
+                exit();
             }
         
     }
