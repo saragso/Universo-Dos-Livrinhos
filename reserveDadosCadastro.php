@@ -9,12 +9,12 @@ if ($conexao->connect_error) {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Receber os dados do formulário
-    $nome_aluno = strtoupper($_POST["name"]);
-    $sobrenome_aluno = strtoupper($_POST["lastname"]);
-    $email = strtoupper($_POST["email"]);
-    $telefone_contato = strtoupper($_POST["number"]);
-    $senha = strtoupper($_POST["password"]);
-    $confirmasenha = strtoupper($_POST["confirmPassword"]);
+    $nome_aluno = ($_POST["name"]);
+    $sobrenome_aluno = ($_POST["lastname"]);
+    $email = ($_POST["email"]);
+    $telefone_contato = ($_POST["number"]);
+    $senha = $_POST["password"];
+    $confirmasenha = $_POST["confirmPassword"];
 
     // Verificar se o e-mail já está cadastrado
     $sql_email = "SELECT * FROM usuarios WHERE email = '$email'";
@@ -25,24 +25,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         // Verificar se as senhas são iguais
         if ($senha != $confirmasenha) {
-            //echo '<div class="alert alert-danger" role="alert">As senhas não são iguais.</div>';
-            //INSERIR UM ALERT DE SENHAS IGUAIS AQUI
-            header("Location: cadastreSe.html");
+            // Redirecionar para a página de cadastro com uma mensagem de erro
+            header("Location: cadastreSe.html?error=password");
             exit();
         } else {
             // As senhas coincidem e o e-mail não está cadastrado, então podemos prosseguir com o cadastro
 
-            // Inserir os dados no banco de dados (substitua 'sua_tabela' pelo nome da sua tabela)
-            $sql_insert = "INSERT INTO usuarios (nome_aluno, sobrenome_aluno, email, telefone_contato, senha) VALUES ('$nome_aluno', '$sobrenome_aluno', '$email', '$telefone_contato', '$senha')";
-            
+            // Criptografar a senha
+            $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
+
+            // Inserir os dados no banco de dados
+            $sql_insert = "INSERT INTO usuarios (nome_aluno, sobrenome_aluno, email, telefone_contato, senha) VALUES ('$nome_aluno', '$sobrenome_aluno', '$email', '$telefone_contato', '$senha_hash')";
+
             if ($conexao->query($sql_insert) === TRUE) {
-                echo '<div class="alert alert-success" role="alert">Cadastro realizado com sucesso!</div>';
-                header("Location: inicioUser.html");
+                // Redirecionar para a página de início do usuário com uma mensagem de sucesso
+                header("Location: inicioUser.html?success=cadastro");
                 exit();
             } else {
-                //echo '<div class="alert alert-danger" role="alert">Erro ao cadastrar: ' . $conexao->error . '</div>';
-                //INSERIR UM ALERT DE "ERRO AO CADASTRAR" AQUI
-                header("Location: cadastreSe.html");
+                // Redirecionar para a página de cadastro com uma mensagem de erro
+                header("Location: cadastreSe.html?error=database");
                 exit();
             }
         }
