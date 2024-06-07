@@ -167,7 +167,7 @@
 <div id="deleteEmployeeModal" class="modal fade">
   <div class="modal-dialog">
     <div class="modal-content">
-      <form> //Criar form para excluir
+      <form action="excluirUserAdmin.php" method="POST"> 
         <div class="modal-header">
           <h4 class="modal-title">Deletar usuário</h4>
           <button type="button" class="close" data-dismiss="modal" 
@@ -176,6 +176,16 @@
         <div class="modal-body">
           <p>Você quer deletar esse usuário?</p>
           <p class="text-warning"><small>Esta ação não poderá ser desfeita.</small></p>
+            
+            <div class="form-header">
+            <div class="input-group">
+                <div class="input-box">
+                    <label for="id_usuario">Informe o ID do aluno para isso!</label>
+                    <input id="id_usuario" type="text" name="id_usuario" placeholder="ID Aluno" required maxlength="80">
+                </div>
+            </div>
+            </div>
+
         </div>
         <div class="modal-footer">
           <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
