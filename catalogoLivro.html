@@ -227,7 +227,7 @@
 <div id="deleteEmployeeModal" class="modal fade">
   <div class="modal-dialog">
     <div class="modal-content">
-      <form> //Criar formulário para excluir php também
+      <form action="excluirLivroAdmin.php" method="POST">  
         <div class="modal-header">
           <h4 class="modal-title">Deletar livro</h4>
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -235,7 +235,17 @@
         <div class="modal-body">
           <p>Você quer deletar esse livro?</p>
           <p class="text-warning"><small>Esta ação não poderá ser desfeita.</small></p>
+          <div class="form-header">
+            <div class="input-group">
+                <div class="input-box">
+                    <label for="id_livro">Informe o ID do livro para isso!</label>
+                    <input id="id_livro" type="text" name="id_livro" placeholder="ID Livro" required maxlength="80">
+                </div>
+            </div>
+            </div>
         </div>
+        
+
         <div class="modal-footer">
           <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
           <input type="submit" class="btn btn-danger" value="Excluir">
@@ -246,7 +256,7 @@
   </div>
 				
 			  </div>
-			 
+
 
     <!--JavaScript, jQuery, Popper.js e Bootstrap JS-->
    <script src="./Assets/JS/jquery-3.3.1.slim.min.js"></script>
