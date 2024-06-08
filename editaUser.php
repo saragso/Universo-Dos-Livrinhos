@@ -1,45 +1,53 @@
 <?php
-
 include('conexao.php');
 
-// Verificar conexão
+// Verifica se a conexão foi estabelecida corretamente
 if ($conexao->connect_error) {
     die("Falha na conexão: " . $conexao->connect_error);
 }
 
+// Verifica se a requisição é do tipo POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Receber os dados do formulário
-    $nome_aluno = $_POST["nome_aluno"];
-    $sobrenome_aluno = $_POST["sobrenome_aluno"];
-    $email = $_POST["email"];
+    // Verifica se todos os parâmetros necessários foram enviados via POST
+    if (isset($_POST['id_usuario'], $_POST['nome_aluno'], $_POST['sobrenome_aluno'], $_POST['email'])) {
+        // Obtém os dados do formulário
+        $id_usuario = $_POST['id_usuario'];
+        $nome_aluno = $_POST['nome_aluno'];
+        $sobrenome_aluno = $_POST['sobrenome_aluno'];
+        $email = $_POST['email'];
 
-    // Verificar se o e-mail já está cadastrado
-    $sql_email = "SELECT * FROM usuarios WHERE email = '$email'";
-    $result_email = $conexao->query($sql_email);
+        // Prepara a instrução SQL para atualizar os dados do usuário na tabela 'usuarios'
+        $sql_update_user = "UPDATE usuarios SET nome_aluno = ?, sobrenome_aluno = ?, email = ? WHERE id_usuario = ?";
 
-    if ($result_email->num_rows > 0) {
-        //echo '<div class="alert alert-danger" role="alert">Esse e-mail já está cadastrado.</div>';
-        //INSERIR UM ALERT AQUI - ESSE EMAIL JÁ ESTÁ CADASTRADO
-        header("Location: catalogoAdmin.html");
-        exit();
-    } else {
-        // Inserir dados na tabela
-        $sql_insert = "UPDATE usuarios (nome_aluno, sobrenome_aluno, email) VALUES ('$nome_aluno', '$sobrenome_aluno', '$email')";
-        
-        if ($conexao->query($sql_insert) === TRUE) {
-            //echo '<div class="alert alert-success" role="alert">Registro inserido com sucesso!</div>';
-            //INSERIR UM ALERT AQUI - REGISTRO INSERIDO COM SUCESSO
-            header("Location: usuariosAdmin.html");
-            exit();
+        // Prepara e executa a instrução SQL
+        if ($stmt = $conexao->prepare($sql_update_user)) {
+            // Vincula os parâmetros à declaração SQL
+            $stmt->bind_param("sssi", $nome_aluno, $sobrenome_aluno, $email, $id_usuario);
+
+            // Executa a declaração SQL
+            if ($stmt->execute()) {
+                // Usuário atualizado com sucesso
+                header("Location: usuariosAdmin.html?success=1");
+                exit();
+            } else {
+                // Se houver um erro na execução da instrução SQL, redireciona com uma mensagem de erro
+                die("Erro na execução da instrução SQL: " . $stmt->error);
+                header("Location: usuariosAdmin.html?error=update_execution");
+                exit();
+            }
         } else {
-            //echo '<div class="alert alert-danger" role="alert">Erro ao inserir registro: ' . $conexao->error . '</div>';
-            //INSERIR UM ALERT AQUI - ERRO AO INSERIR REGISTRO
-            header("Location: usuariosAdmin.html");
+            // Se houver um erro na preparação da instrução SQL, redireciona com uma mensagem de erro
+            die("Erro na preparação da instrução SQL: " . $conexao->error);
+            header("Location: usuariosAdmin.html?error=update_prepare");
             exit();
         }
+    } else {
+        // Se algum parâmetro necessário não foi enviado via POST, redireciona com uma mensagem de erro
+        header("Location: usuariosAdmin.html?error=missing_parameters");
+        exit();
     }
 }
 
-// Fechar conexão com o banco de dados
+// Fecha a conexão com o banco de dados
 $conexao->close();
 ?>

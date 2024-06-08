@@ -149,16 +149,15 @@ CREATE TABLE emprestimos (
     id_usuario INT NULL,
     id_livro INT NOT NULL,
     status ENUM('disponivel', 'alugado') DEFAULT 'disponivel',
-    data_emprestimo TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    data_emprestimo DATE,
     data_devolucao DATE,
-    data_efetiva_devolucao DATE,
     FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario),
     FOREIGN KEY (id_livro) REFERENCES livros(id_livro)
     
 );
 
 -- Inserção de dados na tabela `emprestimos`
-INSERT INTO emprestimos (status, id_usuario, id_livro, data_devolucao, data_efetiva_devolucao)
+INSERT INTO emprestimos (status, id_usuario, id_livro, data_emprestimo, data_devolucao)
 VALUES 
 ('alugado', 1, 1, '2024-06-15', '2024-06-16'),
 ('alugado', 1, 3, '2024-04-23', '2024-04-23'),
@@ -204,7 +203,7 @@ CREATE TABLE admins (
 -- Inserção de dados na tabela `admins`
 INSERT INTO admins (nome, email, senha)
 VALUES 
-('Letícia', 'leticiamendes@gmail.com', 'senha_criptografada');
+('Letícia', 'leticiamendes@gmail.com', '000000');
 
 CREATE TABLE contato (
     id_nota INT AUTO_INCREMENT PRIMARY KEY,
