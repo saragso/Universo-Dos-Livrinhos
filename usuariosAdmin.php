@@ -1,3 +1,36 @@
+<?php
+include('conexao.php');
+
+// Verifica se a conexão foi estabelecida corretamente
+if ($conexao->connect_error) {
+    die("Falha na conexão: " . $conexao->connect_error);
+}
+
+// Prepara a instrução SQL para buscar os dados dos usuários
+$sql = "SELECT foto_perfil, id_usuario, nome_aluno, sobrenome_aluno, email FROM usuarios";
+$result = $conexao->query($sql);
+
+// Verifica se houve algum erro na execução da consulta SQL
+if (!$result) {
+    die("Erro na consulta SQL: " . $conexao->error);
+}
+
+// Verifica se há resultados
+if ($result->num_rows > 0) {
+    // Cria um array para armazenar os dados dos usuários
+    $usuarios = array();
+    while ($row = $result->fetch_assoc()) {
+        $usuarios[] = $row;
+    }
+} else {
+    $usuarios = [];
+}
+
+// Fecha a conexão com o banco de dados
+$conexao->close();
+?>
+
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -98,7 +131,7 @@
       <!-- Tabela de dados dos usuários -->
       <thead>
         <tr>
-          <th></th>
+          
           <th>Foto de perfil</th>
           <th>id_aluno</th>
           <th>Nome</th>
@@ -108,13 +141,13 @@
       </thead>
       <tbody>
         <!-- Dados do usuário -->
-        <tr>
-          <td></td>
-          <td>Foto de perfil</td>
-          <td>001</td>
-          <td>nome</td>
-          <td>sobrenome</td>
-          <td>e-mail</td>
+        <?php foreach ($usuarios as $usuario): ?>
+          <tr>
+          <td><?php echo $usuario['foto_perfil']; ?></td>
+          <td><?php echo $usuario['id_usuario']; ?></td>
+          <td><?php echo $usuario['nome_aluno']; ?></td>
+          <td><?php echo $usuario['sobrenome_aluno']; ?></td>
+          <td><?php echo $usuario['email']; ?></td>
           <td>
             <a href="#editEmployeeModal" class="edit" data-toggle="modal">
 			<i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
@@ -122,7 +155,7 @@
 			<i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
           </td>
         </tr>       
-    
+        <?php endforeach; ?>
       </tbody>
     </table>
 
@@ -226,5 +259,3 @@
   </body>
   
   </html>
-
-

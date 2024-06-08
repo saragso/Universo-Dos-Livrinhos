@@ -34,31 +34,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     // Executa a declaração SQL para excluir o usuário da tabela 'emprestimos'
                     if ($stmt_emprestimos->execute()) {
                         // Usuário excluído com sucesso de ambas as tabelas
-                        header("Location: usuariosAdmin.html");
+                        header("Location: usuariosAdmin.php");
                         exit();
                     } else {
                         // Se houver um erro na execução da instrução SQL para excluir o usuário da tabela 'emprestimos', redireciona com uma mensagem de erro
-                        header("Location: usuariosAdmin.html?error=emprestimos_execution");
+                        header("Location: usuariosAdmin.php");
                         exit();
                     }
                 } else {
                     // Se houver um erro na preparação da instrução SQL para excluir o usuário da tabela 'emprestimos', redireciona com uma mensagem de erro
-                    header("Location: usuariosAdmin.html?error=emprestimos_prepare");
+                    header("Location: usuariosAdmin.php");
                     exit();
                 }
             } else {
                 // Se houver um erro na execução da instrução SQL para excluir o usuário da tabela 'usuarios', redireciona com uma mensagem de erro
-                header("Location: usuariosAdmin.html?error=user_execution");
+                header("Location: usuariosAdmin.php");
                 exit();
             }
         } else {
             // Se houver um erro na preparação da instrução SQL para excluir o usuário da tabela 'usuarios', redireciona com uma mensagem de erro
-            header("Location: usuariosAdmin.html?error=user_prepare");
+            header("Location: usuariosAdmin.php");
             exit();
         }
     } else {
         // Se o parâmetro 'id_usuario' não foi enviado via POST, redireciona com uma mensagem de erro
-        header("Location: usuariosAdmin.html?error=id_missing");
+        header("Location: usuariosAdmin.php");
         exit();
     }
 }

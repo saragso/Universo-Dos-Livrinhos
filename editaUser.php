@@ -27,23 +27,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Executa a declaração SQL
             if ($stmt->execute()) {
                 // Usuário atualizado com sucesso
-                header("Location: usuariosAdmin.html?success=1");
+                header("Location: usuariosAdmin.php");
                 exit();
             } else {
                 // Se houver um erro na execução da instrução SQL, redireciona com uma mensagem de erro
                 die("Erro na execução da instrução SQL: " . $stmt->error);
-                header("Location: usuariosAdmin.html?error=update_execution");
+                header("Location: usuariosAdmin.php");
                 exit();
             }
         } else {
             // Se houver um erro na preparação da instrução SQL, redireciona com uma mensagem de erro
             die("Erro na preparação da instrução SQL: " . $conexao->error);
-            header("Location: usuariosAdmin.html?error=update_prepare");
+            header("Location: usuariosAdmin.php");
             exit();
         }
     } else {
         // Se algum parâmetro necessário não foi enviado via POST, redireciona com uma mensagem de erro
-        header("Location: usuariosAdmin.html?error=missing_parameters");
+        header("Location: usuariosAdmin.php");
         exit();
     }
 }
