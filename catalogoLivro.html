@@ -195,22 +195,25 @@
         <div class="modal-body">
           <div class="form-group">
             <label>Status</label><br>
-            <input id="status" type="radio" name="form-control" value="alugado"> Alugado <br>
-            <input id="status" type="radio" name="form-control" value="alugado"> Disponível
+            <input type="radio" name="status" value="alugado"> Alugado <br>
+            <input type="radio" name="status" value="disponivel"> Disponível
           </div>
           <div class="form-group">
-            <label>ID_Usuário</label>
-            <input id="id_usuario" type="nunber" class="form-control">
+            <label>ID Livro</label>
+            <input name="id_livro" type="number" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label>ID Usuário</label>
+            <input name="id_usuario" type="number" class="form-control" required>
           </div>
           <div class="form-group">
             <label>Data de empréstimo</label>
-            <input id="dataemprestimo" type="date" class="form-control" required>
+            <input name="data_emprestimo" type="date" class="form-control" required>
           </div>
           <div class="form-group">
             <label>Data de devolução</label>
-            <input id="datadevolucao" type="date" class="form-control" required>
+            <input name="data_devolucao" type="date" class="form-control" required>
           </div>
-        </div>
         </div>
         <div class="modal-footer">
           <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
@@ -220,6 +223,7 @@
     </div>
   </div>
 </div>
+
 
 <!-- DELETAR HTML -->
 <div id="deleteEmployeeModal" class="modal fade">
