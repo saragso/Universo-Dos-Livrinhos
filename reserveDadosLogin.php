@@ -14,7 +14,7 @@ $senha = $_POST["password"];
 // Verificar se o email e a senha correspondem a uma conta específica
 if ($email === "leticiamendes@gmail.com") {
     // Redirecionar para a página específica
-    header("Location: usuariosAdmin.html");
+    header("Location: usuariosAdmin.php");
     exit();
 }
 

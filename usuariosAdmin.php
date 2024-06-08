@@ -71,7 +71,7 @@ $conexao->close();
           <ul id="side-itens">    
              <!-- Item do menu ativo (Usuários) -->
               <li class="side-item active">
-                  <a href="usuariosAdmin.html">
+                  <a href="usuariosAdmin.php">
                       <img class="icon-perfil" src="./Assets/Imagens/icon user.png" alt="icone perfil do usuário" width="15px">
                       <span class="item-description">
                           Usuários
@@ -79,7 +79,7 @@ $conexao->close();
                   </a>
               </li>
               <li class="side-item">
-                  <a href="catalogoLivro.html">
+                  <a href="catalogoLivro.php">
                       <img class="" src="./Assets/Imagens/icon catalog.png" alt="icone catálogo de livros" width="15px">
                       <span class="item-description">
                           Catálogo de livros

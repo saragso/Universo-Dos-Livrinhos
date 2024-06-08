@@ -58,24 +58,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($conexao->query($sql_insert) === TRUE) {
                 //echo '<div class="alert alert-success" role="alert">Livro cadastrado com sucesso!</div>'; 
                 //INSERIR UM ALERT AQUI - LIVRO CADASTRADO COM SUCESSO
-                header("Location: catalogoLivro.html");
+                header("Location: catalogoLivro.php");
                 exit();
             } else {
                 //echo '<div class="alert alert-danger" role="alert">Erro ao cadastrar livro: ' . $conexao->error . '</div>'; 
                 //INSERIR UM ALERT AQUI - ERRO AO CADASTRAR LIVRO
-                header("Location: catalogoLivro.html");
+                header("Location: catalogoLivro.php");
                 exit();
             }
         } else {
             //echo '<div class="alert alert-danger" role="alert">Erro ao mover o arquivo enviado.</div>';
             //INSERIR UM ALERT AQUI - ERRO AO MOVER O ARQUIVO ENVIADO
-            header("Location: catalogoLivro.html");
+            header("Location: catalogoLivro.php");
             exit();
         }
     } else {
         //echo '<div class="alert alert-danger" role="alert">Erro no envio do arquivo.</div>';
         //INSERIR UM ALERT AQUI - ERRO NO ENVIO DO ARQUIVO
-        header("Location: catalogoLivro.html");
+        header("Location: catalogoLivro.php");
         exit();
     }
 }

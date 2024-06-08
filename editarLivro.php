@@ -50,15 +50,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 if ($stmt_update = $conexao->prepare($sql_update)) {
                     $stmt_update->bind_param("isssi", $id_usuario, $status, $data_emprestimo, $data_devolucao, $id_livro);
                     if ($stmt_update->execute()) {
-                        header("Location: catalogoLivro.html");
+                        header("Location: catalogoLivro.php");
                         exit();
                     } else {
-                        header("Location: catalogoLivro.html");
+                        header("Location: catalogoLivro.php");
                         exit();
                     }
                     $stmt_update->close();
                 } else {
-                    header("Location: catalogoLivro.html");
+                    header("Location: catalogoLivro.php");
                     exit();
                 }
             } else {
@@ -67,24 +67,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 if ($stmt_insert = $conexao->prepare($sql_insert)) {
                     $stmt_insert->bind_param("iisss", $id_usuario, $id_livro, $status, $data_emprestimo, $data_devolucao);
                     if ($stmt_insert->execute()) {
-                        header("Location: catalogoLivro.html");
+                        header("Location: catalogoLivro.php");
                         exit();
                     } else {
-                        header("Location: catalogoLivro.html");
+                        header("Location: catalogoLivro.php");
                         exit();
                     }
                     $stmt_insert->close();
                 } else {
-                    header("Location: catalogoLivro.html");
+                    header("Location: catalogoLivro.php");
                     exit();
                 }
             }
         } else {
-            header("Location: catalogoLivro.html");
+            header("Location: catalogoLivro.php");
             exit();
         }
     } else {
-        header("Location: catalogoLivro.html");
+        header("Location: catalogoLivro.php");
         exit();
     }
 }
