@@ -32,20 +32,27 @@ if ($result->num_rows > 0) {
 }
 //Fim php menu
 
-// Prepara a instrução SQL para buscar os dados dos livros
+// Prepara a instrução SQL para buscar os dados dos livros alugados pelo usuário logado
 $sql = "SELECT l.nomelivro, l.capalivro, l.autor, e.data_emprestimo, e.data_devolucao 
-        FROM livros l
-        INNER JOIN emprestimos e ON l.id_livro = e.id_livro";
+        FROM emprestimos e
+        INNER JOIN livros l ON e.id_livro = l.id_livro
+        WHERE e.id_usuario = ?";
 
 // Executa a consulta SQL
-$result = $conexao->query($sql);
+$stmt = $conexao->prepare($sql);
+if (!$stmt) {
+    die("Erro na preparação da consulta: " . $conexao->error);
+}
+$stmt->bind_param("i", $id_usuario);
+$stmt->execute();
+$result = $stmt->get_result();
 
 // Verifica se a consulta foi bem-sucedida
 if (!$result) {
     die("Erro na consulta SQL: " . $conexao->error);
 }
 
-// Cria um array para armazenar os dados dos livros e empréstimos
+// Cria um array para armazenar os dados dos livros alugados pelo usuário
 $livros = array();
 
 // Percorre os resultados da consulta e adiciona ao array
