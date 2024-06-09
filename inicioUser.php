@@ -108,7 +108,7 @@ $conexao->close();
         <h1>Início</h1>
         <section class="first-section">
             <div>
-                <h1 class="boas-vindas">Olá! Seja bem-vindo, amiguinho: <br>
+                <h1 class="boas-vindas">Olá! Seja bem-vindo(a), amiguinho(a): <br>
                     <strong><?php echo $nome; ?></strong></h1>
             </div>
             <div class="box-img-main">
