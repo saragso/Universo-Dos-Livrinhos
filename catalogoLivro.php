@@ -68,17 +68,23 @@ while ($rowLivros = $resultLivros->fetch_assoc()) {
 
 // Percorre os resultados da consulta de empréstimos e atualiza o array de livros
 while ($rowEmprestimos = $resultEmprestimos->fetch_assoc()) {
-    // Procura o livro correspondente no array de livros
-    foreach ($livros as &$livro) {
-        if ($livro['id_livro'] === $rowEmprestimos['id_livro']) {
-            // Atualiza os dados de empréstimo para o livro correspondente
-            $livro['status'] = $rowEmprestimos['status'];
-            $livro['id_usuario'] = $rowEmprestimos['id_usuario'];
-            $livro['data_emprestimo'] = $rowEmprestimos['data_emprestimo'];
-            $livro['data_devolucao'] = $rowEmprestimos['data_devolucao'];
-            break;
-        }
-    }
+  // Variável para verificar se o livro já foi atualizado
+  $livroAtualizado = false;
+  // Procura o livro correspondente no array de livros
+  foreach ($livros as &$livro) {
+      if ($livro['id_livro'] === $rowEmprestimos['id_livro']) {
+          // Verifica se o livro já foi atualizado
+          if (!$livroAtualizado) {
+              // Atualiza os dados de empréstimo para o livro correspondente
+              $livro['status'] = $rowEmprestimos['status'];
+              $livro['id_usuario'] = $rowEmprestimos['id_usuario'];
+              $livro['data_emprestimo'] = $rowEmprestimos['data_emprestimo'];
+              $livro['data_devolucao'] = $rowEmprestimos['data_devolucao'];
+              // Marca o livro como atualizado
+              $livroAtualizado = true;
+          }
+      }
+  }
 }
 
 // Fecha a conexão com o banco de dados
