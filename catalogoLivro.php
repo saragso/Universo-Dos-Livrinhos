@@ -203,27 +203,29 @@ $conexao->close();
       </thead>
       <tbody>
         <!-- Dados do usuário -->
-        <?php foreach ($livros as $livros): ?>
-          <tr>
-          <td><?php echo $livros['id_livro']; ?></td>
-          <td><?php echo $livros['capalivro']; ?></td>
-          <td><?php echo $livros['nomelivro']; ?></td>
-          <td><?php echo $livros['autor']; ?></td>
-          <td><?php echo $livros['editora']; ?></td>
-          <td><?php echo $livros['classificacao']; ?></td>
-          <td><?php echo $livros['sinopse']; ?></td>
-          <td><?php echo $livros['status']; ?></td>
-          <td><?php echo $livros['id_usuario']; ?></td>
-          <td><?php echo $livros['data_emprestimo']; ?></td>
-          <td><?php echo $livros['data_devolucao']; ?></td>
+      <?php foreach ($livros as $livro): ?>
+         <tr>
+          <td><?php echo $livro['id_livro']; ?></td>
+          <td><?php echo "<img src='Assets/Imagens/" . $livro['capalivro'] . "' class='card-img-top' alt='Capa do livro: " . $livro['nomelivro'] . "'>"; ?></td>
+          <td><?php echo $livro['nomelivro']; ?></td>
+          <td><?php echo $livro['autor']; ?></td>
+          <td><?php echo $livro['editora']; ?></td>
+          <td><?php echo $livro['classificacao']; ?></td>
+          <td><?php echo $livro['sinopse']; ?></td>
+          <td><?php echo $livro['status']; ?></td>
+          <td><?php echo $livro['id_usuario']; ?></td>
+          <td><?php echo $livro['data_emprestimo']; ?></td>
+          <td><?php echo $livro['data_devolucao']; ?></td>
           <td>
             <a href="#editEmployeeModal" class="edit" data-toggle="modal">
-			<i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+              <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
+            </a>
             <a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
-			<i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-          </td>
+              <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i>
+            </a>
+         </td>
         </tr>       
-        <?php endforeach; ?>
+      <?php endforeach; ?>
       </tbody>
     </table>
 
