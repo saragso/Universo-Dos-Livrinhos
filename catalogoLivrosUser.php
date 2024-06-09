@@ -43,7 +43,7 @@
                     </a>
                 </li>
                 <li class="side-item active">
-                    <a href="./catalogoLivrosUser.html">
+                    <a href="./catalogoLivrosUser.php">
                         <img class="" src="./Assets/Imagens/icon catalog.png" alt="icone catálogo de livros" width="15px">
                         <span class="item-description">Catálogo de livros</span>
                     </a>
