@@ -1,3 +1,92 @@
+<?php
+include('conexao.php');
+
+// Verifica se a conexão foi estabelecida corretamente
+if ($conexao->connect_error) {
+    die("Falha na conexão: " . $conexao->connect_error);
+}
+
+// Prepara a instrução SQL para buscar os dados dos livros
+$sqlLivros = "SELECT 
+                id_livro, 
+                capalivro, 
+                nomelivro, 
+                autor, 
+                editora, 
+                classificacao, 
+                sinopse 
+            FROM 
+                livros";
+
+// Executa a consulta SQL para buscar os dados dos livros
+$resultLivros = $conexao->query($sqlLivros);
+
+// Prepara a instrução SQL para buscar os dados dos empréstimos
+$sqlEmprestimos = "SELECT 
+                    livros.id_livro, 
+                    livros.capalivro, 
+                    livros.nomelivro, 
+                    livros.autor, 
+                    livros.editora, 
+                    livros.classificacao, 
+                    livros.sinopse, 
+                    emprestimos.status, 
+                    emprestimos.id_usuario,
+                    emprestimos.data_emprestimo, 
+                    emprestimos.data_devolucao 
+                FROM 
+                    livros 
+                INNER JOIN 
+                    emprestimos ON livros.id_livro = emprestimos.id_livro";
+
+// Executa a consulta SQL para buscar os dados dos empréstimos
+$resultEmprestimos = $conexao->query($sqlEmprestimos);
+
+// Verifica se houve algum erro na execução da consulta SQL de livros
+if (!$resultLivros) {
+    die("Erro na consulta SQL de livros: " . $conexao->error);
+}
+
+// Verifica se houve algum erro na execução da consulta SQL de empréstimos
+if (!$resultEmprestimos) {
+    die("Erro na consulta SQL de empréstimos: " . $conexao->error);
+}
+
+// Cria um array para armazenar os dados dos livros e empréstimos
+$livros = array();
+
+// Percorre os resultados da consulta de livros e adiciona ao array
+while ($rowLivros = $resultLivros->fetch_assoc()) {
+    // Inicializa o array de empréstimos para cada livro
+    $rowLivros['status'] = null;
+    $rowLivros['id_usuario'] = null;
+    $rowLivros['data_emprestimo'] = null;
+    $rowLivros['data_devolucao'] = null;
+    // Adiciona os dados do livro ao array
+    $livros[] = $rowLivros;
+}
+
+// Percorre os resultados da consulta de empréstimos e atualiza o array de livros
+while ($rowEmprestimos = $resultEmprestimos->fetch_assoc()) {
+    // Procura o livro correspondente no array de livros
+    foreach ($livros as &$livro) {
+        if ($livro['id_livro'] === $rowEmprestimos['id_livro']) {
+            // Atualiza os dados de empréstimo para o livro correspondente
+            $livro['status'] = $rowEmprestimos['status'];
+            $livro['id_usuario'] = $rowEmprestimos['id_usuario'];
+            $livro['data_emprestimo'] = $rowEmprestimos['data_emprestimo'];
+            $livro['data_devolucao'] = $rowEmprestimos['data_devolucao'];
+            break;
+        }
+    }
+}
+
+// Fecha a conexão com o banco de dados
+$conexao->close();
+?>
+
+
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -99,7 +188,7 @@
       <thead>
         <tr>
           <!-- Cabeçalhos da tabela -->
-          <th></th>
+          <th>ID Livro</th>
           <th>Capa do livro</th>
           <th>Nome</th>
           <th>Autor</th>
@@ -107,34 +196,34 @@
           <th>Classificação</th>
           <th>Sinopse</th>
           <th>Status</th>
-          <th>ID_Usuário</th>
+          <th>ID Aluno</th>
           <th>Data de empréstimo</th>
           <th>Data de devolução</th>
         </tr>
       </thead>
       <tbody>
-        <!-- Linhas da tabela com os dados dos livros -->
-        <tr>
-          <!-- Dados do livro -->
-          <td></td>
-          <td><img src="./Assets/Imagens/o monstro que adorava ler.png" class="card-img-top" alt="livro: o monstro que adorava ler">
-          </td>
-          <td>O monstro que adorava ler</td>
-          <td>Lili Chartrand</td>
-          <td>SM</td>
-          <td>4 - 7 anos</td>
-          <td>À beira de uma floresta encantada, um monstro assustador encontra um estranho objeto, que ele cheira e lambe. Não tem gosto de nada! Com raiva, joga-o no chão. No entanto, esse objeto admirável vai mudar completamente sua vida e seu humor. Uma história engraçada, surpreendente e tocante sobre a magia dos livros e o prazer da leitura.</td>
-          <td>Alugado</td>
-          <td>001</td>
-          <td>16/04/2024</td>
-          <td>23/04/2024</td>
+        <!-- Dados do usuário -->
+        <?php foreach ($livros as $livros): ?>
+          <tr>
+          <td><?php echo $livros['id_livro']; ?></td>
+          <td><?php echo $livros['capalivro']; ?></td>
+          <td><?php echo $livros['nomelivro']; ?></td>
+          <td><?php echo $livros['autor']; ?></td>
+          <td><?php echo $livros['editora']; ?></td>
+          <td><?php echo $livros['classificacao']; ?></td>
+          <td><?php echo $livros['sinopse']; ?></td>
+          <td><?php echo $livros['status']; ?></td>
+          <td><?php echo $livros['id_usuario']; ?></td>
+          <td><?php echo $livros['data_emprestimo']; ?></td>
+          <td><?php echo $livros['data_devolucao']; ?></td>
           <td>
             <a href="#editEmployeeModal" class="edit" data-toggle="modal">
 			<i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
             <a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
 			<i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
           </td>
-        </tr>   
+        </tr>       
+        <?php endforeach; ?>
       </tbody>
     </table>
 
