@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             if ($conexao->query($sql_insert) === TRUE) {
                 // Redirecionar para a página de início do usuário com uma mensagem de sucesso
-                header("Location: inicioUser.php?success=cadastro");
+                header("Location: login.html");
                 exit();
             } else {
                 // Redirecionar para a página de cadastro com uma mensagem de erro
