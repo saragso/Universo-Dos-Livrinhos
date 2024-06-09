@@ -1,50 +1,79 @@
+<?php
+session_start();
+include('conexao.php');
+
+// Verificar se o usuário está logado
+if (!isset($_SESSION["id_usuario"])) {
+    header("Location: login.html");
+    exit();
+}
+
+$id_usuario = $_SESSION["id_usuario"];
+
+// Consulta SQL para obter as informações do usuário
+$sql = "SELECT nome_aluno, foto_perfil FROM usuarios WHERE id_usuario = ?";
+$stmt = $conexao->prepare($sql);
+if (!$stmt) {
+    die("Erro na preparação da consulta: " . $conexao->error);
+}
+$stmt->bind_param("i", $id_usuario);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $nome = $row["nome_aluno"];
+    $foto_perfil = $row["foto_perfil"] ? $row["foto_perfil"] : 'Assets/Imagens/foto de perfil.png'; // Foto padrão se não houver foto de perfil
+} else {
+    $nome = "Usuário";
+    $foto_perfil = 'Assets/Imagens/foto de perfil.png';
+}
+
+// Fechar conexão com o banco de dados
+$stmt->close();
+$conexao->close();
+?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8"> <!--Define o conjunto de caracteres UTF-8 para suportar diferentes idiomas-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--Define a largura da tela e a escala inicial para dispositivos móveis-->
-    <link rel="stylesheet" href="./Assets/CSS/perfilUser.css"> <!--Carrega o CSS personalizado-->
-    <link rel="shortcut icon" href="Assets/Imagens/Logo.png" type="image/x-icon"> <!--define o ícone da página-->
-    <title>Perfil</title> <!--título da página-->
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Assets/CSS/inicioUser.css">
+    <link rel="shortcut icon" href="Assets/Imagens/Logo.png" type="image/x-icon">
+    <title>Início</title>
 </head>
 <body>
-    <!--início do menu lateral-->
     <nav id="sidebar">
         <div id="sidebar-content">
             <div id="user">
-                <img src="./Assets/Imagens/avatar.png" id="user-avatar" alt="avatar do usuário" width="50px">
+                <img src="<?php echo $foto_perfil; ?>" id="user-avatar" alt="avatar do usuário" width="50px">
                 <p id="user-infos">
                     <span class="item-description">
-                        Lara
+                        <?php echo $nome; ?>
                     </span>
                     <span class="item-description">
                         Estudante
                     </span>
                 </p>
             </div>
-    
             <ul id="side-itens">
-    
-                <li class="side-item">
-                    <a href="./inicioUser.html">
+                <li class="side-item active">
+                    <a href="./inicioUser.php">
                         <img class="icon-dashboard" src="./Assets/Imagens/icon homepage.png" alt="icone casa - dashboard" width="15px">
                         <span class="item-description">
                             Início
                         </span>
                     </a>
                 </li>
-    
-                <li class="side-item active">
-                    <a href="./perfilUser.html">
+                <li class="side-item">
+                    <a href="./perfilUser.php">
                         <img class="icon-perfil" src="./Assets/Imagens/icon user.png" alt="icone perfil do usuário" width="15px">
                         <span class="item-description">
                             Perfil
                         </span>
                     </a>
                 </li>
-    
                 <li class="side-item">
                     <a href="./livrosAlugadosUser.php">
                         <img class="icon-livros-alugados" src="./Assets/Imagens/icon books.png" alt="icone livros alugados" width="15px">
@@ -53,7 +82,6 @@
                         </span>
                     </a>
                 </li>
-    
                 <li class="side-item">
                     <a href="./catalogoLivrosUser.php">
                         <img class="" src="./Assets/Imagens/icon catalog.png" alt="icone catálogo de livros" width="15px">
@@ -62,14 +90,11 @@
                         </span>
                     </a>
                 </li>
-                
             </ul>
-    
             <button id="open-btn">
                 <img id="open-btn-icon" src="./Assets/Imagens/icon seta.ico" alt="icone de seta" width="15px">
             </button>
         </div>
-        
         <div id="logout">
             <button id="logout-btn">
                 <img id="logout-btn-icon" src="./Assets/Imagens/icon logout.ico" alt="ícone logout" width="15px">
@@ -78,79 +103,19 @@
                 </span>
             </button>
         </div>
-
-    </nav> <!--fim do menu lateral-->
-    
-    <main> <!--conteúdo da página, fora o menu-->
-        <h1>Meu Perfil</h1>
-        <div class="container">
-            <div class="card">
-                <img src="Assets/Imagens/avatar.png" alt="perfil" class="profile-img">
-                <br><br>
-
-                <div class="container-text">
-                    <h1 class="name">
-                        <label for="nome-aluno-banco">Lara da Silva</label>
-                    </h1><br>
-
-                    <h3 class="desc">
-                        <div class="form-group">
-                            <label for="e-mail">E-mail:</label>
-                            <label for="e-mail-banco">Joãosilva@gmail.com</label><br>
-                            <label for="senha">Senha:</label>
-                            <label for="senha-banco">********</label><br>
-                            <label for="telefone">Telefone:</label>
-                            <label for="senha-banco">(11) 09090-9090</label>
-                          </div>
-                    </h3>
-                    <br>
-                    
-                    <!--botão de editar dados do usuário-->
-                    <div class="login-button">
-                        <button><a href="./editarDadosUser.html">Editar Dados</a></button>
-                    </div>
-    
-
-                </div>
-
+    </nav>
+    <main>
+        <h1>Início</h1>
+        <section class="first-section">
+            <div>
+                <h1 class="boas-vindas">Olá! Seja bem-vindo, amiguinho: <br>
+                    <strong><?php echo $nome; ?></strong></h1>
             </div>
-
-        </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            <div class="box-img-main">
+                <img class="img-profile" alt="Foto de perfil do Aluno" src="<?php echo $foto_perfil; ?>">
+            </div>
+        </section>
     </main>
-
-    
     <script src="./Assets/JS/script.js"></script>
 </body>
 </html>

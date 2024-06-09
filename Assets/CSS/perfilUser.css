@@ -208,37 +208,33 @@ main {
 
 /*Estilizando a foto de perfil*/
 .profile-img {
-  width: 120px;
+  width: 200px; /* Ajuste do tamanho da imagem */
+  height: 200px; /* Adicionado altura para manter proporção */
   border-radius: 50%;
   border: #F2BAC9 5px solid;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  align-items: center;
   margin-top: 50px;
+  object-fit: cover; /* Para garantir que a imagem se ajuste bem */
 }
 
 /*Estilizando o texto do container*/
 .container-text {
-  margin-top: -40px;
   margin-top: 10px;
 }
 
 h1.nome {
   margin: 0;
-
 }
 
 h3.desc {
   font-weight: 400;
-
 }
 
 /* botão editar dados*/
-
 .login-button {
   display: flex;
   align-items: center;
   margin-bottom: 15px;
-
 }
 
 .login-button button {
@@ -247,12 +243,10 @@ h3.desc {
   padding: 0.5rem 3rem;
   border-right: 5px;
   cursor: pointer;
-
 }
 
 .login-button button:hover {
   background-color: #81F7E5;
-
 }
 
 .login-button button a {

@@ -225,8 +225,8 @@ strong{
 /*imagem redonda*/
 
 .img-profile{
-  height: 200px;
-  width: 200px;
+  height: 350px;
+  width: 350px;
   border-radius: 50%;
   border: 5px coloar #F2BAC9;
 }
