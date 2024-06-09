@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Verificar se as senhas são iguais
         if ($senha != $confirmasenha) {
             // Redirecionar para a página de cadastro com uma mensagem de erro
-            header("Location: cadastreSe.php");
+            header("Location: cadastreSe.html?error-password");
             exit();
         } else {
             // As senhas coincidem e o e-mail não está cadastrado, então podemos prosseguir com o cadastro
@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 exit();
             } else {
                 // Redirecionar para a página de cadastro com uma mensagem de erro
-                header("Location: cadastreSe.php");
+                header("Location: cadastreSe.html?error");
                 exit();
             }
         }

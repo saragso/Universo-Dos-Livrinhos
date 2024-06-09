@@ -38,12 +38,12 @@ if ($result->num_rows > 0) {
         exit();
     } else {
         // Senha incorreta - permanece na mesma página
-        header("Location: login.php");
+        header("Location: login.html?error-password");
         exit();
     }
 } else {
     // E-mail não encontrado - permanece na mesma página
-    header("Location: login.php");
+    header("Location: login.html?error-email");
     exit();
 }
 
