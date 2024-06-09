@@ -29,21 +29,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 if ($conexao->query($sql_update_foto) === TRUE) {
                     error_log("Foto de perfil atualizada com sucesso: " . $caminhoArquivo);
-                    header("Location: editarDadosUser.html?success=foto");
+                    header("Location: editarDadosUser.html");
                     exit();
                 } else {
                     error_log("Erro ao atualizar foto no banco de dados: " . $conexao->error);
-                    header("Location: editarDadosUser.html?error=foto");
+                    header("Location: editarDadosUser.html");
                     exit();
                 }
             } else {
                 error_log("Erro ao mover o arquivo enviado.");
-                header("Location: editarDadosUser.html?error=move");
+                header("Location: editarDadosUser.html");
                 exit();
             }
         } else {
             error_log("Nenhum arquivo enviado ou erro no envio: " . $_FILES['foto_perfil']['error']);
-            header("Location: editarDadosUser.html?error=no_file");
+            header("Location: editarDadosUser.html");
             exit();
         }
     } elseif (isset($_POST['update_nome'])) {
@@ -54,10 +54,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sql_update_nome = "UPDATE usuarios SET nome_aluno='$nome_aluno', sobrenome_aluno='$sobrenome_aluno' WHERE email='$email'";
 
         if ($conexao->query($sql_update_nome) === TRUE) {
-            header("Location: editarDadosUser.html?success=nome");
+            header("Location: editarDadosUser.html");
             exit();
         } else {
-            header("Location: editarDadosUser.html?error=nome");
+            header("Location: editarDadosUser.html");
             exit();
         }
     } elseif (isset($_POST['update_email'])) {
@@ -67,10 +67,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sql_update_email = "UPDATE usuarios SET email='$email' WHERE email='$email_antigo'";
 
         if ($conexao->query($sql_update_email) === TRUE) {
-            header("Location: editarDadosUser.html?success=email");
+            header("Location: editarDadosUser.html");
             exit();
         } else {
-            header("Location: editarDadosUser.html?error=email");
+            header("Location: editarDadosUser.html");
             exit();
         }
 
@@ -81,10 +81,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sql_update_telefone = "UPDATE usuarios SET telefone_contato='$telefone_contato' WHERE email='$email'";
 
         if ($conexao->query($sql_update_telefone) === TRUE) {
-            header("Location: editarDadosUser.html?success=telefone");
+            header("Location: editarDadosUser.html");
             exit();
         } else {
-            header("Location: editarDadosUser.html?error=telefone");
+            header("Location: editarDadosUser.html");
             exit();
         }
 
@@ -95,7 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Verificar se as senhas são iguais
         if ($senha != $confirmasenha) {
-            header("Location: editarDadosUser.html?error=senha");
+            header("Location: editarDadosUser.html");
             exit();
         } else {
             // Criptografar a nova senha
@@ -105,10 +105,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $sql_update_senha = "UPDATE usuarios SET senha='$senha_hashed' WHERE email='$email'";
 
             if ($conexao->query($sql_update_senha) === TRUE) {
-                header("Location: editarDadosUser.html?success=senha");
+                header("Location: editarDadosUser.html");
                 exit();
             } else {
-                header("Location: editarDadosUser.html?error=senha");
+                header("Location: editarDadosUser.html");
                 exit();
             }
         }
