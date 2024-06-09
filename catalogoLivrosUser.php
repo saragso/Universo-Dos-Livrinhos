@@ -1,5 +1,3 @@
-catalogoLivrosUser.html vira catalogoLivrosUser.php
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
