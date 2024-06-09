@@ -82,7 +82,7 @@ $conexao->close();
                 </li>
     
                 <li class="side-item active">
-                    <a href="./livrosAlugadosUser.html">
+                    <a href="./livrosAlugadosUser.php">
                         <img class="icon-livros-alugados" src="./Assets/Imagens/icon books.png" alt="icone livros alugados" width="15px">
                         <span class="item-description">
                             Livros alugados
