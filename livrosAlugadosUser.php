@@ -94,7 +94,7 @@ $conexao->close();
                 </p>
             </div>
             <ul id="side-itens">
-                <li class="side-item active">
+                <li class="side-item">
                     <a href="./inicioUser.php">
                         <img class="icon-dashboard" src="./Assets/Imagens/icon homepage.png" alt="icone casa - dashboard" width="15px">
                         <span class="item-description">
@@ -110,7 +110,7 @@ $conexao->close();
                         </span>
                     </a>
                 </li>
-                <li class="side-item">
+                <li class="side-item active">
                     <a href="./livrosAlugadosUser.php">
                         <img class="icon-livros-alugados" src="./Assets/Imagens/icon books.png" alt="icone livros alugados" width="15px">
                         <span class="item-description">
