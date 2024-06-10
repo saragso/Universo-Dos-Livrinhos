@@ -284,7 +284,7 @@ $conexao->close();
 <div id="editEmployeeModal" class="modal fade">
   <div class="modal-dialog">
     <div class="modal-content">
-      <form action="editarLivro.php" method="post">
+      <form action="editarLivro.php" method="post" id="editForm">
         <div class="modal-header">
           <h4 class="modal-title">Editar livro</h4>
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -292,24 +292,24 @@ $conexao->close();
         <div class="modal-body">
           <div class="form-group">
             <label>Status</label><br>
-            <input type="radio" name="status" value="alugado"> Alugado <br>
-            <input type="radio" name="status" value="disponivel"> Disponível
+            <input type="radio" name="status" value="alugado" onclick="toggleFields(true)" required> Alugado <br>
+            <input type="radio" name="status" value="disponivel" onclick="toggleFields(false)" required> Disponível
           </div>
           <div class="form-group">
             <label>ID Livro</label>
             <input name="id_livro" type="number" class="form-control" required>
           </div>
-          <div class="form-group">
+          <div class="form-group" id="idUsuarioGroup">
             <label>ID Usuário</label>
-            <input name="id_usuario" type="number" class="form-control" required>
+            <input name="id_usuario" type="number" class="form-control">
           </div>
-          <div class="form-group">
+          <div class="form-group" id="dataEmprestimoGroup">
             <label>Data de empréstimo</label>
-            <input name="data_emprestimo" type="date" class="form-control" required>
+            <input name="data_emprestimo" type="date" class="form-control">
           </div>
-          <div class="form-group">
+          <div class="form-group" id="dataDevolucaoGroup">
             <label>Data de devolução</label>
-            <input name="data_devolucao" type="date" class="form-control" required>
+            <input name="data_devolucao" type="date" class="form-control">
           </div>
         </div>
         <div class="modal-footer">
@@ -320,6 +320,7 @@ $conexao->close();
     </div>
   </div>
 </div>
+
 
 
 <!-- DELETAR HTML -->
@@ -379,6 +380,25 @@ $conexao->close();
 		});
 		
     </script>
+
+<script>
+  function toggleFields(isAlugado) {
+    document.querySelector('[name="id_usuario"]').required = isAlugado;
+    document.querySelector('[name="data_emprestimo"]').required = isAlugado;
+    document.querySelector('[name="data_devolucao"]').required = isAlugado;
+
+    document.getElementById('idUsuarioGroup').style.display = isAlugado ? 'block' : 'none';
+    document.getElementById('dataEmprestimoGroup').style.display = isAlugado ? 'block' : 'none';
+    document.getElementById('dataDevolucaoGroup').style.display = isAlugado ? 'block' : 'none';
+  }
+
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    toggleFields(false); 
+  });
+</script>
+
+
     <script src="./Assets/JS/scriptMenuUser.js"></script>
 
   </body>
