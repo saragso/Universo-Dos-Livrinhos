@@ -11,3 +11,7 @@ Para a realização do projeto da livraria infantil, utilizamos as seguintes lin
 - Framework Bootstrap
 - PHP
 
+  ## Contribuidoras
+  A primeira entrega do trabalho, correspondente ao front end, foi realizada pelas alunas Beatriz Alves, Giovana Silva Oliveira e Sara Oliveira.
+  A segunda entrega, correspondente ao back end, foi realizada apenas pelas alunas Giovana Silva Oliveira e Sara Gomes de Oliveira, como consta nos commits.
+
