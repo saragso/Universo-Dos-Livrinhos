@@ -29,6 +29,40 @@ if ($result->num_rows > 0) {
     $foto_perfil = 'Assets/Imagens/foto de perfil.png';
 }
 
+// Prepara a instrução SQL para buscar os dados dos livros
+$sqlLivros = "SELECT 
+                id_livro, 
+                capalivro, 
+                nomelivro, 
+                autor, 
+                editora, 
+                classificacao, 
+                sinopse 
+            FROM 
+                livros";
+
+// Executa a consulta SQL para buscar os dados dos livros
+$resultLivros = $conexao->query($sqlLivros);
+
+// Verifica se houve algum erro na execução da consulta SQL de livros
+if (!$resultLivros) {
+    die("Erro na consulta SQL de livros: " . $conexao->error);
+}
+
+// Cria um array para armazenar os dados dos livros
+$livros = array();
+
+// Percorre os resultados da consulta de livros e adiciona ao array
+while ($rowLivros = $resultLivros->fetch_assoc()) {
+    // Verifica se o caminho da capa do livro já possui o prefixo 'Assets/Imagens/'
+    if (strpos($rowLivros['capalivro'], 'Assets/Imagens/') === false) {
+        // Se não tiver, adiciona o prefixo ao caminho da capa
+        $rowLivros['capalivro'] = 'Assets/Imagens/' . $rowLivros['capalivro'];
+    }
+    // Adiciona os dados do livro ao array
+    $livros[] = $rowLivros;
+}
+
 // Fechar conexão com o banco de dados
 $stmt->close();
 $conexao->close();
@@ -116,52 +150,17 @@ $conexao->close();
         <!--Usando cards do bootstrap para fazer o catálogo de livros disponíveis para aluguel-->
         <div class="cards">
             <?php
-
-            // Incluir o arquivo de conexão com o banco de dados
-            include('conexao.php');
-
-            // Verificar se a conexão foi estabelecida
-            if ($conexao->connect_error) {
-                die("Falha na conexão: " . $conexao->connect_error);
-            }
-
-            // Diretório onde as imagens de capa dos livros estão armazenadas
-            $caminho_imagens = 'Assets/Imagens/';
-
-            // Consulta SQL para selecionar os dados dos livros
-            $sql = "SELECT capalivro, nomelivro, autor, classificacao, sinopse FROM livros";
-            $resultado = $conexao->query($sql);
-
-            // Verificar se há resultados
-            if ($resultado->num_rows > 0) {
-                // Loop através dos resultados
-                while ($linha = $resultado->fetch_assoc()) {
-                    $capa = $linha['capalivro'];
-                    $titulo = $linha['nomelivro'];
-                    $autor = $linha['autor'];
-                    $classificacao = $linha['classificacao'];
-                    $sinopse = $linha['sinopse'];
-
-                    // Construir o caminho completo da imagem
-                    $caminho_capa = $caminho_imagens . $capa;
-
-                    // Gerar o card
+                foreach ($livros as $livro) {
                     echo "<div class='card' style='width: 18rem; height: 38rem; margin: 10px;'>";
-                    echo "<img src='$caminho_capa' class='card-img-top' alt='Capa do livro: $titulo'>";
+                    echo "<img src='" . $livro['capalivro'] . "' class='card-img-top' alt='Capa do livro: " . $livro['nomelivro'] . "'>";
                     echo "<div class='card-body'>";
-                    echo "<h5 class='card-title'>$titulo</h5>";
-                    echo "<h6 class='card-subtitle'>$autor</h6>";
-                    echo "<p>Classificação: $classificacao</p>";
-                    echo "<p class='card-text'>$sinopse</p>";
+                    echo "<h5 class='card-title'>" . $livro['nomelivro'] . "</h5>";
+                    echo "<h6 class='card-subtitle'>" . $livro['autor'] . "</h6>";
+                    echo "<p>Classificação: " . $livro['classificacao'] . "</p>";
+                    echo "<p class='card-text'>" . $livro['sinopse'] . "</p>";
                     echo "</div>";
                     echo "</div>";
-                }
-            } else {
-                echo "Nenhum livro encontrado.";
-            }
-
-            // Fechar a conexão com o banco de dados
-            $conexao->close();
+                } 
             ?>
         </div> <!--fim dos cards usando bootstrap-->
     </main>
