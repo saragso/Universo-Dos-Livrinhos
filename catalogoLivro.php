@@ -51,6 +51,8 @@ $livros = array();
 
 // Percorre os resultados da consulta de livros e adiciona ao array
 while ($rowLivros = $resultLivros->fetch_assoc()) {
+  
+    $rowLivros['capalivro'] = strpos($rowLivros['capalivro'], 'Assets/Imagens/') === false ? 'Assets/Imagens/' . $rowLivros['capalivro'] : $rowLivros['capalivro'];
     // Inicializa o array de empréstimos para cada livro
     $livros[$rowLivros['id_livro']] = $rowLivros;
     $livros[$rowLivros['id_livro']]['status'] = null;
@@ -196,7 +198,7 @@ $conexao->close();
       <?php foreach ($livros as $livro): ?>
          <tr>
           <td><?php echo $livro['id_livro']; ?></td>
-          <td><?php echo "<img src='Assets/Imagens/" . $livro['capalivro'] . "' class='card-img-top' alt='Capa do livro: " . $livro['nomelivro'] . "'>"; ?></td>
+          <td><img src="<?php echo $livro['capalivro']; ?>" class="card-img-top" alt="Capa do livro: <?php echo $livro['nomelivro']; ?>"></td>
           <td><?php echo $livro['nomelivro']; ?></td>
           <td><?php echo $livro['autor']; ?></td>
           <td><?php echo $livro['editora']; ?></td>
