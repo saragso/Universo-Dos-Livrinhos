@@ -24,19 +24,13 @@ $resultLivros = $conexao->query($sqlLivros);
 // Prepara a instrução SQL para buscar os dados dos empréstimos
 $sqlEmprestimos = "SELECT 
                     livros.id_livro, 
-                    livros.capalivro, 
-                    livros.nomelivro, 
-                    livros.autor, 
-                    livros.editora, 
-                    livros.classificacao, 
-                    livros.sinopse, 
                     emprestimos.status, 
                     emprestimos.id_usuario,
                     emprestimos.data_emprestimo, 
                     emprestimos.data_devolucao 
                 FROM 
                     livros 
-                INNER JOIN 
+                LEFT JOIN 
                     emprestimos ON livros.id_livro = emprestimos.id_livro";
 
 // Executa a consulta SQL para buscar os dados dos empréstimos
@@ -52,39 +46,29 @@ if (!$resultEmprestimos) {
     die("Erro na consulta SQL de empréstimos: " . $conexao->error);
 }
 
-// Cria um array para armazenar os dados dos livros e empréstimos
+// Cria um array para armazenar os dados dos livros
 $livros = array();
 
 // Percorre os resultados da consulta de livros e adiciona ao array
 while ($rowLivros = $resultLivros->fetch_assoc()) {
     // Inicializa o array de empréstimos para cada livro
-    $rowLivros['status'] = null;
-    $rowLivros['id_usuario'] = null;
-    $rowLivros['data_emprestimo'] = null;
-    $rowLivros['data_devolucao'] = null;
-    // Adiciona os dados do livro ao array
-    $livros[] = $rowLivros;
+    $livros[$rowLivros['id_livro']] = $rowLivros;
+    $livros[$rowLivros['id_livro']]['status'] = null;
+    $livros[$rowLivros['id_livro']]['id_usuario'] = null;
+    $livros[$rowLivros['id_livro']]['data_emprestimo'] = null;
+    $livros[$rowLivros['id_livro']]['data_devolucao'] = null;
 }
 
 // Percorre os resultados da consulta de empréstimos e atualiza o array de livros
 while ($rowEmprestimos = $resultEmprestimos->fetch_assoc()) {
-  // Variável para verificar se o livro já foi atualizado
-  $livroAtualizado = false;
-  // Procura o livro correspondente no array de livros
-  foreach ($livros as &$livro) {
-      if ($livro['id_livro'] === $rowEmprestimos['id_livro']) {
-          // Verifica se o livro já foi atualizado
-          if (!$livroAtualizado) {
-              // Atualiza os dados de empréstimo para o livro correspondente
-              $livro['status'] = $rowEmprestimos['status'];
-              $livro['id_usuario'] = $rowEmprestimos['id_usuario'];
-              $livro['data_emprestimo'] = $rowEmprestimos['data_emprestimo'];
-              $livro['data_devolucao'] = $rowEmprestimos['data_devolucao'];
-              // Marca o livro como atualizado
-              $livroAtualizado = true;
-          }
-      }
-  }
+    // Procura o livro correspondente no array de livros
+    if (isset($livros[$rowEmprestimos['id_livro']])) {
+        // Atualiza os dados de empréstimo para o livro correspondente
+        $livros[$rowEmprestimos['id_livro']]['status'] = $rowEmprestimos['status'];
+        $livros[$rowEmprestimos['id_livro']]['id_usuario'] = $rowEmprestimos['id_usuario'];
+        $livros[$rowEmprestimos['id_livro']]['data_emprestimo'] = $rowEmprestimos['data_emprestimo'];
+        $livros[$rowEmprestimos['id_livro']]['data_devolucao'] = $rowEmprestimos['data_devolucao'];
+    }
 }
 
 // Fecha a conexão com o banco de dados
