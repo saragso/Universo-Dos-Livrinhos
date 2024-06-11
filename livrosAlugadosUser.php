@@ -1,6 +1,4 @@
 <?php
-
-/*PHP MENU*/
 session_start();
 include('conexao.php');
 
@@ -30,39 +28,42 @@ if ($result->num_rows > 0) {
     $nome = "Usuário";
     $foto_perfil = 'Assets/Imagens/foto de perfil.png';
 }
-//Fim php menu
 
-// Prepara a instrução SQL para buscar os dados dos livros alugados pelo usuário logado
-$sql = "SELECT l.nomelivro, l.capalivro, l.autor, e.data_emprestimo, e.data_devolucao 
-        FROM emprestimos e
-        INNER JOIN livros l ON e.id_livro = l.id_livro
-        WHERE e.id_usuario = ?";
-
-// Executa a consulta SQL
-$stmt = $conexao->prepare($sql);
-if (!$stmt) {
+// Consulta SQL para obter os livros alugados pelo usuário
+$sqlLivrosAlugados = "SELECT l.nomelivro, l.capalivro, l.autor, e.data_emprestimo, e.data_devolucao 
+                      FROM emprestimos e
+                      INNER JOIN livros l ON e.id_livro = l.id_livro
+                      WHERE e.id_usuario = ?";
+$stmtLivrosAlugados = $conexao->prepare($sqlLivrosAlugados);
+if (!$stmtLivrosAlugados) {
     die("Erro na preparação da consulta: " . $conexao->error);
 }
-$stmt->bind_param("i", $id_usuario);
-$stmt->execute();
-$result = $stmt->get_result();
+$stmtLivrosAlugados->bind_param("i", $id_usuario);
+$stmtLivrosAlugados->execute();
+$resultLivrosAlugados = $stmtLivrosAlugados->get_result();
 
-// Verifica se a consulta foi bem-sucedida
-if (!$result) {
-    die("Erro na consulta SQL: " . $conexao->error);
+if (!$resultLivrosAlugados) {
+    die("Erro na consulta SQL de livros alugados: " . $conexao->error);
 }
 
 // Cria um array para armazenar os dados dos livros alugados pelo usuário
-$livros = array();
+$livrosAlugados = array();
 
-// Percorre os resultados da consulta e adiciona ao array
-while ($row = $result->fetch_assoc()) {
-    $livros[] = $row;
+// Percorre os resultados da consulta de livros alugados e adiciona ao array
+while ($rowLivros = $resultLivrosAlugados->fetch_assoc()) {
+    // Verifica se o caminho da capa do livro já possui o prefixo 'Assets/Imagens/'
+    if (strpos($rowLivros['capalivro'], 'Assets/Imagens/') === false) {
+        // Se não tiver, adiciona o prefixo ao caminho da capa
+        $rowLivros['capalivro'] = 'Assets/Imagens/' . $rowLivros['capalivro'];
+    }
+    // Adiciona os dados do livro ao array
+    $livrosAlugados[] = $rowLivros;
 }
 
 // Fecha a conexão com o banco de dados
 $conexao->close();
 ?>
+
 
 <!--Esse menu será usado em todas as páginas de usuário-->
 <!DOCTYPE html>
@@ -141,36 +142,33 @@ $conexao->close();
         </div>
     </nav> <!--fim do menu lateral-->
 
-    <main> <!--conteúdo da página, fora o menu-->
+    <main>
         <h1>Livros Alugados</h1>
           
-          <div class="cards">
-          <?php 
-        // Verifica se existem livros para exibir
-        if (!empty($livros)) {
-            // Itera sobre cada livro
-            foreach ($livros as $livro) {
-                // Exibe os dados do livro
-                echo "<div class='card' style='width: 18rem;'>
-                        <img src='./Assets/Imagens/{$livro["capalivro"]}' class='card-img-top' alt='livro: {$livro["nomelivro"]}'>
-                        <div class='card-body'>
-                          <h5 class='card-title'>{$livro["nomelivro"]}</h5>
-                          <p class='card-text'>{$livro["autor"]}</p>
-                        </div>
-                        <ul class='list-group list-group-flush'>
-                          <li class='list-group-item'>Data de empréstimo: {$livro["data_emprestimo"]}</li>
-                          <li class='list-group-item'>Data de devolução: {$livro["data_devolucao"]}</li>
-                        </ul>
-                      </div>";
-            }
-        } else {
-            // Se não houver livros, exibe uma mensagem
-            echo "Nenhum livro alugado encontrado.";
-        }
-        ?>
-          </div>  <!--fim dos cards usando bootstrap-->
-                  
+        <div class="cards">
+    <?php 
+    foreach ($livrosAlugados as $livro) {
+        echo "<div class='card' style='width: 18rem; margin: 10px;'>";
+        echo "<img src='" . $livro['capalivro'] . "' class='card-img-top' alt='Capa do livro: " . $livro['nomelivro'] . "'>";
+        echo "<div class='card-body'>";
+        echo "<h5 class='card-title'>{$livro["nomelivro"]}</h5>";
+        echo "<p class='card-text'>{$livro["autor"]}</p>";
+        echo "<ul class='list-group list-group-flush'>";
+        echo "<li class='list-group-item'>Data de empréstimo: {$livro["data_emprestimo"]}</li>";
+        echo "<li class='list-group-item'>Data de devolução: {$livro["data_devolucao"]}</li>";
+        echo "</ul>";
+        echo "</div>";
+        echo "</div>";
+    }
+    ?>
+</div>
     </main>
+
+    <script src="./Assets/JS/scriptMenuUser.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
+
   
     <!--script do menu-->
     <script src="./Assets/JS/scriptMenuUser.js"></script>
